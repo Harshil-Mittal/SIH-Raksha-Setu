@@ -5,12 +5,17 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
+import { LanguageProvider } from "@/context/LanguageContext";
 import SplashScreen from "./components/SplashScreen";
 import WindowFrame from "./components/WindowFrame";
+import ErrorBoundary from "./components/ErrorBoundary";
+import ProtectedRoute from "./components/ProtectedRoute";
 import useUIStore from "./state/uiStore";
 import Index from "./pages/Index";
 import TouristPage from "./pages/TouristPage";
 import DashboardPage from "./pages/DashboardPage";
+import LanguageDemoPage from "./pages/LanguageDemoPage";
+import Unauthorized from "./pages/Unauthorized";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +25,13 @@ const App = () => {
   const { openWindows } = useUIStore();
 
   useEffect(() => {
+    // Clear any invalid authentication data on app start
+    const token = localStorage.getItem('raksha_token');
+    if (token && !token.startsWith('eyJ') && !token.startsWith('mock_jwt_token_')) {
+      localStorage.removeItem('raksha_token');
+      localStorage.removeItem('raksha_user');
+    }
+    
     const splashShown = localStorage.getItem('raksha_splash_shown');
     if (!splashShown) {
       setShowSplash(true);
@@ -36,27 +48,49 @@ const App = () => {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <AuthProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/tourist" element={<TouristPage />} />
-              <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-          
-          {/* Render open windows */}
-          {openWindows.map(window => (
-            <WindowFrame key={window.id} window={window} />
-          ))}
-        </AuthProvider>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <AuthProvider>
+            <LanguageProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={
+                    <ProtectedRoute requireAuth={false}>
+                      <Index />
+                    </ProtectedRoute>
+                  } />
+                  <Route path="/tourist" element={
+                    <ProtectedRoute allowedRoles={['tourist']}>
+                      <TouristPage />
+                    </ProtectedRoute>
+                  } />
+                  <Route path="/dashboard" element={
+                    <ProtectedRoute allowedRoles={['police', 'tourism', 'admin']}>
+                      <DashboardPage />
+                    </ProtectedRoute>
+                  } />
+                  <Route path="/language-demo" element={
+                    <ProtectedRoute>
+                      <LanguageDemoPage />
+                    </ProtectedRoute>
+                  } />
+                  <Route path="/unauthorized" element={<Unauthorized />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </BrowserRouter>
+              
+              {/* Render open windows */}
+              {openWindows.map(window => (
+                <WindowFrame key={window.id} window={window} />
+              ))}
+            </LanguageProvider>
+          </AuthProvider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 };
 

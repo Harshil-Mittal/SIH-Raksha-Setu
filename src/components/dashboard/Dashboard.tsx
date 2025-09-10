@@ -12,9 +12,11 @@ import {
   Shield,
   UserCheck,
   Settings as SettingsIcon,
-  Bell
+  Bell,
+  Languages
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import InteractiveMap from '../map/InteractiveMap';
 import LiveAlerts from './LiveAlerts';
 import TouristManagement from './TouristManagement';
@@ -26,6 +28,7 @@ import SystemHealth from './SystemHealth';
 
 const Dashboard: React.FC = () => {
   const { auth } = useAuth();
+  const navigate = useNavigate();
   const userRole = auth.user?.role;
   const [currentView, setCurrentView] = useState<'dashboard' | 'alerts' | 'tourists' | 'zones' | 'efir' | 'analytics' | 'roles' | 'system'>('dashboard');
 
@@ -91,6 +94,17 @@ const Dashboard: React.FC = () => {
         onClick: () => setCurrentView('analytics')
       });
     }
+
+    // Add language demo card for all roles
+    baseCards.push({
+      title: 'Language Features',
+      icon: Languages,
+      description: 'Translation, TTS & STT demo',
+      data: '12 Languages',
+      color: 'text-blue-500',
+      action: 'Try Demo',
+      onClick: () => navigate('/language-demo')
+    });
 
     if (userRole === 'admin') {
       baseCards.push(

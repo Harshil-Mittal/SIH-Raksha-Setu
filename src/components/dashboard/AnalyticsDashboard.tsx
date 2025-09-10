@@ -32,14 +32,14 @@ import {
   Calendar,
   ArrowLeft
 } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 
 interface AnalyticsDashboardProps {
   onBack: () => void;
 }
 
 const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ onBack }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [timeRange, setTimeRange] = useState('7d');
   const [selectedMetric, setSelectedMetric] = useState('alerts');
 
@@ -143,7 +143,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ onBack }) => {
             <Button variant="ghost" size="sm" onClick={onBack}>
               <ArrowLeft className="w-4 h-4" />
             </Button>
-            <h1 className="text-2xl font-bold">{t('analytics.title')}</h1>
+            <h1 className="text-2xl font-bold">Analytics Dashboard</h1>
           </div>
           <div className="flex items-center gap-2">
             <Select value={timeRange} onValueChange={setTimeRange}>
@@ -160,7 +160,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ onBack }) => {
             </Select>
             <Button variant="outline">
               <Download className="w-4 h-4 mr-2" />
-              {t('analytics.export')}
+              Export
             </Button>
           </div>
         </div>
@@ -199,7 +199,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ onBack }) => {
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="alerts">Alerts</TabsTrigger>
             <TabsTrigger value="tourists">Tourists</TabsTrigger>
-            <TabsTrigger value="heatmap">{t('analytics.heatmap')}</TabsTrigger>
+            <TabsTrigger value="heatmap">Heatmap</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
@@ -271,7 +271,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ onBack }) => {
           <TabsContent value="alerts" className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>{t('analytics.daily')} Breakdown</CardTitle>
+                <CardTitle>Daily Breakdown</CardTitle>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={400}>
@@ -330,7 +330,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ onBack }) => {
           <TabsContent value="heatmap" className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>Risk {t('analytics.heatmap')}</CardTitle>
+                <CardTitle>Risk Heatmap</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -347,7 +347,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ onBack }) => {
                       </div>
                       <div className="text-right">
                         <span className="text-2xl font-bold">{zone.incidents}</span>
-                        <p className="text-sm text-muted-foreground">{t('analytics.incidents')}</p>
+                        <p className="text-sm text-muted-foreground">Incidents</p>
                       </div>
                     </div>
                   ))}

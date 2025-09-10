@@ -20,7 +20,7 @@ import {
   Clock,
   ArrowLeft
 } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 
 interface Zone {
   id: string;
@@ -41,7 +41,7 @@ interface ZoneManagementProps {
 }
 
 const ZoneManagement: React.FC<ZoneManagementProps> = ({ onBack }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [selectedZone, setSelectedZone] = useState<Zone | null>(null);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -135,13 +135,13 @@ const ZoneManagement: React.FC<ZoneManagementProps> = ({ onBack }) => {
             <Button variant="ghost" size="sm" onClick={onBack}>
               <ArrowLeft className="w-4 h-4" />
             </Button>
-            <h1 className="text-2xl font-bold">{t('zones.title')}</h1>
+            <h1 className="text-2xl font-bold">"Static Text"</h1>
           </div>
           <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
             <DialogTrigger asChild>
               <Button>
                 <Plus className="w-4 h-4 mr-2" />
-                {t('zones.draw')}
+                "Static Text"
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl">
@@ -161,8 +161,8 @@ const ZoneManagement: React.FC<ZoneManagementProps> = ({ onBack }) => {
                         <SelectValue placeholder="Select type" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="safe">{t('zones.safe')}</SelectItem>
-                        <SelectItem value="restricted">{t('zones.restricted')}</SelectItem>
+                        <SelectItem value="safe">"Static Text"</SelectItem>
+                        <SelectItem value="restricted">"Static Text"</SelectItem>
                         <SelectItem value="alert">Alert Zone</SelectItem>
                       </SelectContent>
                     </Select>
@@ -181,10 +181,10 @@ const ZoneManagement: React.FC<ZoneManagementProps> = ({ onBack }) => {
                 </div>
                 <div className="flex justify-end gap-2">
                   <Button variant="outline" onClick={() => setIsCreateDialogOpen(false)}>
-                    {t('common.cancel')}
+                    "Static Text"
                   </Button>
                   <Button onClick={() => setIsCreateDialogOpen(false)}>
-                    {t('zones.save')}
+                    "Static Text"
                   </Button>
                 </div>
               </div>
@@ -210,8 +210,8 @@ const ZoneManagement: React.FC<ZoneManagementProps> = ({ onBack }) => {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Zones</SelectItem>
-              <SelectItem value="safe">{t('zones.safe')}</SelectItem>
-              <SelectItem value="restricted">{t('zones.restricted')}</SelectItem>
+              <SelectItem value="safe">"Static Text"</SelectItem>
+              <SelectItem value="restricted">"Static Text"</SelectItem>
               <SelectItem value="alert">Alert Zones</SelectItem>
             </SelectContent>
           </Select>
@@ -353,10 +353,10 @@ const ZoneManagement: React.FC<ZoneManagementProps> = ({ onBack }) => {
               
               <div className="flex justify-end gap-2">
                 <Button variant="outline" onClick={() => setSelectedZone(null)}>
-                  {t('common.close')}
+                  "Static Text"
                 </Button>
                 <Button>
-                  {t('zones.edit')}
+                  "Static Text"
                 </Button>
               </div>
             </div>

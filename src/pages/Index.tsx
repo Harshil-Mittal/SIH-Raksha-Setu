@@ -13,18 +13,23 @@ const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    // Redirect based on role after authentication
+    // Only redirect if user is authenticated and splash is complete
     if (auth.isAuthenticated && auth.user && !showSplash) {
-      switch (auth.user.role) {
-        case 'tourist':
-          navigate('/tourist', { replace: true });
-          break;
-        case 'police':
-        case 'tourism':
-        case 'admin':
-          navigate('/dashboard', { replace: true });
-          break;
-      }
+      // Small delay to prevent immediate redirect
+      const timer = setTimeout(() => {
+        switch (auth.user.role) {
+          case 'tourist':
+            navigate('/tourist', { replace: true });
+            break;
+          case 'police':
+          case 'tourism':
+          case 'admin':
+            navigate('/dashboard', { replace: true });
+            break;
+        }
+      }, 100);
+      
+      return () => clearTimeout(timer);
     }
   }, [auth.isAuthenticated, auth.user, navigate, showSplash]);
 

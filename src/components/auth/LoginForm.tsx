@@ -43,13 +43,16 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup }) => {
 
   const handleDemoLogin = async (role: keyof typeof DEMO_ACCOUNTS) => {
     const demoCredentials = DEMO_ACCOUNTS[role];
-    const success = await login(demoCredentials);
-    if (success) {
-      toast({
-        title: "Demo Login Successful",
-        description: `Logged in as ${role}`,
-      });
-    }
+    
+    // Show demo credentials to user
+    toast({
+      title: "Demo Account Credentials",
+      description: `Email: ${demoCredentials.email}, Password: ${demoCredentials.password}`,
+      duration: 5000,
+    });
+    
+    // Pre-fill the form with demo credentials
+    setCredentials(demoCredentials);
   };
 
   return (

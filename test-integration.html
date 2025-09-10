@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RakshaSetu Integration Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .loading { background-color: #fff3cd; border-color: #ffeaa7; }
+    </style>
+</head>
+<body>
+    <h1>RakshaSetu Integration Test</h1>
+    
+    <div id="frontend-test" class="test loading">
+        <h3>Frontend Test</h3>
+        <p>Testing frontend at: <span id="frontend-url"></span></p>
+        <p id="frontend-status">Loading...</p>
+    </div>
+    
+    <div id="language-api-test" class="test loading">
+        <h3>Language API Test</h3>
+        <p>Testing language API at: <span id="language-api-url"></span></p>
+        <p id="language-api-status">Loading...</p>
+    </div>
+    
+    <div id="blockchain-api-test" class="test loading">
+        <h3>Blockchain API Test</h3>
+        <p>Testing blockchain API at: <span id="blockchain-api-url"></span></p>
+        <p id="blockchain-api-status">Loading...</p>
+    </div>
+    
+    <div id="cors-test" class="test loading">
+        <h3>CORS Test</h3>
+        <p id="cors-status">Testing CORS configuration...</p>
+    </div>
+
+    <script>
+        // Test URLs
+        const FRONTEND_URL = 'http://localhost:8080';
+        const LANGUAGE_API_URL = 'http://localhost:3001/api';
+        const BLOCKCHAIN_API_URL = 'http://localhost:3002/api';
+        
+        // Update URLs in the page
+        document.getElementById('frontend-url').textContent = FRONTEND_URL;
+        document.getElementById('language-api-url').textContent = LANGUAGE_API_URL;
+        document.getElementById('blockchain-api-url').textContent = BLOCKCHAIN_API_URL;
+        
+        // Test functions
+        async function testFrontend() {
+            try {
+                const response = await fetch(FRONTEND_URL);
+                if (response.ok) {
+                    document.getElementById('frontend-test').className = 'test success';
+                    document.getElementById('frontend-status').textContent = '✅ Frontend is running and accessible';
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                document.getElementById('frontend-test').className = 'test error';
+                document.getElementById('frontend-status').textContent = `❌ Frontend error: ${error.message}`;
+            }
+        }
+        
+        async function testLanguageAPI() {
+            try {
+                const response = await fetch(`${LANGUAGE_API_URL}/health`);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('language-api-test').className = 'test success';
+                    document.getElementById('language-api-status').textContent = `✅ Language API is running - ${data.message}`;
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                document.getElementById('language-api-test').className = 'test error';
+                document.getElementById('language-api-status').textContent = `❌ Language API error: ${error.message}`;
+            }
+        }
+        
+        async function testBlockchainAPI() {
+            try {
+                const response = await fetch(`${BLOCKCHAIN_API_URL}/health`);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('blockchain-api-test').className = 'test success';
+                    document.getElementById('blockchain-api-status').textContent = `✅ Blockchain API is running - ${data.message}`;
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                document.getElementById('blockchain-api-test').className = 'test error';
+                document.getElementById('blockchain-api-status').textContent = `❌ Blockchain API error: ${error.message}`;
+            }
+        }
+        
+        async function testCORS() {
+            try {
+                // Test CORS by making a request from frontend to backend
+                const response = await fetch(`${LANGUAGE_API_URL}/language/supported`);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('cors-test').className = 'test success';
+                    document.getElementById('cors-status').textContent = `✅ CORS is working - Got ${data.data.count} languages`;
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                document.getElementById('cors-test').className = 'test error';
+                document.getElementById('cors-status').textContent = `❌ CORS error: ${error.message}`;
+            }
+        }
+        
+        // Run all tests
+        async function runAllTests() {
+            await testFrontend();
+            await testLanguageAPI();
+            await testBlockchainAPI();
+            await testCORS();
+        }
+        
+        // Start tests when page loads
+        runAllTests();
+    </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { AuthState, User, LoginCredentials, SignupData, UserRole, DEMO_ACCOUNTS } from '@/types/auth';
+import { authApi } from '@/services/authApi';
 
 interface AuthContextType {
   auth: AuthState;
@@ -96,7 +97,7 @@ const mockUsers: Record<string, User> = {
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [auth, dispatch] = useReducer(authReducer, initialState);
 
-  // Load auth state from localStorage on mount
+  // Load auth state from localStorage on mount with token validation
   useEffect(() => {
     const token = localStorage.getItem('raksha_token');
     const userData = localStorage.getItem('raksha_user');
@@ -104,7 +105,35 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (token && userData) {
       try {
         const user = JSON.parse(userData);
-        dispatch({ type: 'LOGIN_SUCCESS', payload: { user, token } });
+        
+        // Validate token format (basic check)
+        if (token.startsWith('eyJ') || token.startsWith('mock_jwt_token_')) {
+          // Check if token is expired (for JWT tokens)
+          if (token.startsWith('eyJ')) {
+            try {
+              const payload = JSON.parse(atob(token.split('.')[1]));
+              const currentTime = Math.floor(Date.now() / 1000);
+              
+              if (payload.exp && payload.exp < currentTime) {
+                // Token expired
+                localStorage.removeItem('raksha_token');
+                localStorage.removeItem('raksha_user');
+                return;
+              }
+            } catch (error) {
+              // Invalid JWT format
+              localStorage.removeItem('raksha_token');
+              localStorage.removeItem('raksha_user');
+              return;
+            }
+          }
+          
+          dispatch({ type: 'LOGIN_SUCCESS', payload: { user, token } });
+        } else {
+          // Invalid token format
+          localStorage.removeItem('raksha_token');
+          localStorage.removeItem('raksha_user');
+        }
       } catch (error) {
         localStorage.removeItem('raksha_token');
         localStorage.removeItem('raksha_user');
@@ -115,24 +144,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (credentials: LoginCredentials): Promise<boolean> => {
     dispatch({ type: 'LOGIN_START' });
 
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Check demo accounts
-    const demoRole = Object.keys(DEMO_ACCOUNTS).find(
-      role => DEMO_ACCOUNTS[role as UserRole].email === credentials.email &&
-              DEMO_ACCOUNTS[role as UserRole].password === credentials.password
-    ) as UserRole;
-
-    if (demoRole) {
-      const user = mockUsers[credentials.email];
-      const token = `mock_jwt_token_${user.id}`;
+    try {
+      // Try real API first
+      const response = await authApi.login(credentials);
       
-      localStorage.setItem('raksha_token', token);
-      localStorage.setItem('raksha_user', JSON.stringify(user));
-      
-      dispatch({ type: 'LOGIN_SUCCESS', payload: { user, token } });
-      return true;
+      if (response.success && response.data) {
+        const { user, token } = response.data;
+        
+        localStorage.setItem('raksha_token', token);
+        localStorage.setItem('raksha_user', JSON.stringify(user));
+        
+        dispatch({ type: 'LOGIN_SUCCESS', payload: { user, token } });
+        return true;
+      } else {
+        // No fallback to demo accounts - require real authentication
+        console.log('API login failed, no fallback allowed');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
     }
 
     dispatch({ type: 'LOGIN_FAILURE' });
@@ -142,35 +171,45 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signup = async (data: SignupData): Promise<boolean> => {
     dispatch({ type: 'LOGIN_START' });
 
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Create new user (mock)
-    const newUser: User = {
-      id: Date.now().toString(),
-      name: data.name,
-      email: data.email,
-      role: data.role,
-      language: data.language,
-      nationality: data.nationality,
-      digitalId: data.role === 'tourist' ? `TRS-${Date.now()}` : undefined,
-      isActive: true,
-      createdAt: new Date(),
-    };
-
-    const token = `mock_jwt_token_${newUser.id}`;
-    
-    localStorage.setItem('raksha_token', token);
-    localStorage.setItem('raksha_user', JSON.stringify(newUser));
-    
-    dispatch({ type: 'LOGIN_SUCCESS', payload: { user: newUser, token } });
-    return true;
+    try {
+      // Try real API first
+      const response = await authApi.register(data);
+      
+      if (response.success && response.data) {
+        const { user, token } = response.data;
+        
+        localStorage.setItem('raksha_token', token);
+        localStorage.setItem('raksha_user', JSON.stringify(user));
+        
+        dispatch({ type: 'LOGIN_SUCCESS', payload: { user, token } });
+        return true;
+      } else {
+        // No fallback to mock - require real API registration
+        console.log('API registration failed, no fallback allowed');
+      }
+    } catch (error: any) {
+      console.error('Signup error:', error);
+      dispatch({ type: 'LOGIN_FAILURE' });
+      
+      // Show specific error message
+      if (error.response?.data?.error) {
+        console.error('Registration failed:', error.response.data.error);
+      }
+      
+      return false;
+    }
   };
 
-  const logout = () => {
-    localStorage.removeItem('raksha_token');
-    localStorage.removeItem('raksha_user');
-    dispatch({ type: 'LOGOUT' });
+  const logout = async () => {
+    try {
+      await authApi.logout();
+    } catch (error) {
+      console.error('Logout API error:', error);
+    } finally {
+      localStorage.removeItem('raksha_token');
+      localStorage.removeItem('raksha_user');
+      dispatch({ type: 'LOGOUT' });
+    }
   };
 
   const updateProfile = (updates: Partial<User>) => {

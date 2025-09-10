@@ -24,7 +24,7 @@ import {
   Filter,
   ArrowLeft
 } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 
 interface FIR {
   id: string;
@@ -50,7 +50,7 @@ interface EFIRManagementProps {
 }
 
 const EFIRManagement: React.FC<EFIRManagementProps> = ({ onBack }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [selectedFIR, setSelectedFIR] = useState<FIR | null>(null);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -164,13 +164,13 @@ const EFIRManagement: React.FC<EFIRManagementProps> = ({ onBack }) => {
             <Button variant="ghost" size="sm" onClick={onBack}>
               <ArrowLeft className="w-4 h-4" />
             </Button>
-            <h1 className="text-2xl font-bold">{t('efir.title')}</h1>
+            <h1 className="text-2xl font-bold">"Static Text"</h1>
           </div>
           <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
             <DialogTrigger asChild>
               <Button>
                 <Plus className="w-4 h-4 mr-2" />
-                {t('efir.create')}
+                "Static Text"
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -264,13 +264,13 @@ const EFIRManagement: React.FC<EFIRManagementProps> = ({ onBack }) => {
 
                 <div className="flex justify-end gap-2">
                   <Button variant="outline" onClick={() => setIsCreateDialogOpen(false)}>
-                    {t('common.cancel')}
+                    "Static Text"
                   </Button>
                   <Button variant="outline">
-                    Save as {t('efir.draft')}
+                    Save as "Static Text"
                   </Button>
                   <Button onClick={() => setIsCreateDialogOpen(false)}>
-                    {t('common.submit')}
+                    "Static Text"
                   </Button>
                 </div>
               </div>
@@ -300,9 +300,9 @@ const EFIRManagement: React.FC<EFIRManagementProps> = ({ onBack }) => {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Status</SelectItem>
-              <SelectItem value="draft">{t('efir.draft')}</SelectItem>
-              <SelectItem value="pending">{t('efir.pending')}</SelectItem>
-              <SelectItem value="approved">{t('efir.approved')}</SelectItem>
+              <SelectItem value="draft">"Static Text"</SelectItem>
+              <SelectItem value="pending">"Static Text"</SelectItem>
+              <SelectItem value="approved">"Static Text"</SelectItem>
               <SelectItem value="rejected">Rejected</SelectItem>
               <SelectItem value="closed">Closed</SelectItem>
             </SelectContent>
@@ -382,7 +382,7 @@ const EFIRManagement: React.FC<EFIRManagementProps> = ({ onBack }) => {
                     {fir.status === 'pending' && (
                       <Button size="sm">
                         <CheckCircle className="w-4 h-4 mr-1" />
-                        {t('efir.approve')}
+                        "Static Text"
                       </Button>
                     )}
                   </div>
@@ -519,7 +519,7 @@ const EFIRManagement: React.FC<EFIRManagementProps> = ({ onBack }) => {
                 </span>
                 <div className="flex gap-2">
                   <Button variant="outline" onClick={() => setSelectedFIR(null)}>
-                    {t('common.close')}
+                    "Static Text"
                   </Button>
                   <Button variant="outline">
                     <Edit className="w-4 h-4 mr-2" />
@@ -532,7 +532,7 @@ const EFIRManagement: React.FC<EFIRManagementProps> = ({ onBack }) => {
                   {selectedFIR.status === 'pending' && (
                     <Button>
                       <CheckCircle className="w-4 h-4 mr-2" />
-                      {t('efir.approve')}
+                      "Static Text"
                     </Button>
                   )}
                 </div>

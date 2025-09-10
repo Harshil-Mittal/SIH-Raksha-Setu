@@ -17,7 +17,7 @@ import {
   Search,
   Filter
 } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 
 interface User {
   id: string;
@@ -35,7 +35,7 @@ interface RoleManagementProps {
 }
 
 const RoleManagement: React.FC<RoleManagementProps> = ({ onBack }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');

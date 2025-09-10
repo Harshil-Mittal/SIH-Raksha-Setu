@@ -14,17 +14,17 @@ import {
   Shield
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import SettingsDialog from '@/components/tourist/SettingsDialog';
 import HomeDialog from '@/components/tourist/HomeDialog';
 
 const TopBar: React.FC = () => {
   const { auth, logout } = useAuth();
+  const { currentLanguage, changeLanguage, isChanging } = useLanguage();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [homeDialogOpen, setHomeDialogOpen] = useState(false);
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
   const [isDark, setIsDark] = useState(false);
 
   const languages = [
@@ -61,11 +61,10 @@ const TopBar: React.FC = () => {
   };
 
   const handleLanguageChange = (languageCode: string) => {
-    i18n.changeLanguage(languageCode);
-    localStorage.setItem('raksha_language', languageCode);
+    changeLanguage(languageCode);
   };
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  const selectedLanguage = languages.find(lang => lang.code === currentLanguage) || languages[0];
 
   return (
     <>
@@ -81,7 +80,7 @@ const TopBar: React.FC = () => {
             </span>
           </div>
           <div className="hidden sm:block text-xs text-muted-foreground border-l pl-3 ml-1">
-            {t('app.tagline')}
+            Your Digital Companion for Safe Journeys
           </div>
         </div>
 
@@ -91,15 +90,15 @@ const TopBar: React.FC = () => {
           <div className="hidden md:flex items-center gap-2">
             <Button variant="ghost" size="sm" onClick={handleHome}>
               <Home className="w-4 h-4 mr-2" />
-              {t('topbar.home')}
+              Home
             </Button>
             
             <Button variant="ghost" size="sm" onClick={handleSettings}>
               <Settings className="w-4 h-4 mr-2" />
-              {t('topbar.settings')}
+              Settings
             </Button>
             
-            <Select value={i18n.language} onValueChange={handleLanguageChange}>
+            <Select value={currentLanguage} onValueChange={handleLanguageChange}>
               <SelectTrigger className="w-24 h-8">
                 <Globe className="w-4 h-4 mr-1" />
                 <SelectValue />
@@ -153,20 +152,20 @@ const TopBar: React.FC = () => {
                   
                   <Button variant="ghost" className="justify-start" onClick={handleHome}>
                     <Home className="w-4 h-4 mr-3" />
-                    {t('topbar.home')}
+                    Home
                   </Button>
                   
                   <Button variant="ghost" className="justify-start" onClick={handleSettings}>
                     <Settings className="w-4 h-4 mr-3" />
-                    {t('topbar.settings')}
+                    Settings
                   </Button>
                   
                   <div className="px-3 py-2">
                     <div className="flex items-center gap-2 mb-2">
                       <Globe className="w-4 h-4" />
-                      <span className="text-sm font-medium">{t('topbar.language')}</span>
+                      <span className="text-sm font-medium">Language</span>
                     </div>
-                    <Select value={i18n.language} onValueChange={handleLanguageChange}>
+                    <Select value={currentLanguage} onValueChange={handleLanguageChange} disabled={isChanging}>
                       <SelectTrigger className="w-full">
                         <SelectValue />
                       </SelectTrigger>
@@ -185,12 +184,12 @@ const TopBar: React.FC = () => {
                   
                   <Button variant="ghost" className="justify-start" onClick={toggleTheme}>
                     {isDark ? <Sun className="w-4 h-4 mr-3" /> : <Moon className="w-4 h-4 mr-3" />}
-                    {isDark ? 'Light Mode' : t('topbar.dark')}
+                    {isDark ? 'Light Mode' : 'Dark Mode'}
                   </Button>
                   
                   <Button variant="ghost" className="justify-start text-destructive" onClick={handleLogout}>
                     <LogOut className="w-4 h-4 mr-3" />
-                    {t('topbar.logout')}
+                    Logout
                   </Button>
                 </div>
               </SheetContent>
