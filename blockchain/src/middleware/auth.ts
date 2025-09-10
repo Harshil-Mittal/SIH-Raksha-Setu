@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { sqliteUser, IUser } from '../models/SqliteUser';
+import User, { IUser } from '../models/User';
 import { logger } from '../utils/logger';
 
 // Extend Request interface to include user
@@ -29,7 +29,7 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'raksha-setu-secret') as any;
-    const user = await sqliteUser.findById(decoded.userId);
+    const user = await User.findById(decoded.userId).select('-password');
 
     if (!user) {
       return res.status(401).json({
@@ -83,7 +83,7 @@ export const optionalAuth = async (req: Request, res: Response, next: NextFuncti
 
     if (token) {
       const decoded = jwt.verify(token, process.env.JWT_SECRET || 'raksha-setu-secret') as any;
-      const user = await sqliteUser.findById(decoded.userId);
+      const user = await User.findById(decoded.userId).select('-password');
       
       if (user && user.isActive) {
         req.user = user;

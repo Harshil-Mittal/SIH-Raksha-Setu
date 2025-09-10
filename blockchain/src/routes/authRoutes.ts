@@ -4,8 +4,15 @@ import User from '../models/User';
 import { authenticate, AuthRequest } from '../middleware/auth';
 import { logger } from '../utils/logger';
 import Joi from 'joi';
+import mongoose from 'mongoose';
+import { inMemoryStorage } from '../services/inMemoryStorage';
 
 const router = Router();
+
+// Helper function to check if MongoDB is connected
+const isMongoConnected = () => {
+  return mongoose.connection.readyState === 1;
+};
 
 // Validation schemas
 const registerSchema = Joi.object({
@@ -35,12 +42,17 @@ router.post('/register', async (req: Request, res: Response) => {
     }
 
     // Check if user already exists
-    const existingUser = await User.findOne({
-      $or: [
-        { email: value.email },
-        { walletAddress: value.walletAddress }
-      ]
-    });
+    let existingUser = null;
+    if (isMongoConnected()) {
+      existingUser = await User.findOne({
+        $or: [
+          { email: value.email },
+          { walletAddress: value.walletAddress }
+        ]
+      });
+    } else {
+      existingUser = await inMemoryStorage.findUserByEmail(value.email);
+    }
 
     if (existingUser) {
       return res.status(400).json({
@@ -50,11 +62,16 @@ router.post('/register', async (req: Request, res: Response) => {
     }
 
     // Create new user
-    const user = await User.create(value);
+    let user;
+    if (isMongoConnected()) {
+      user = await User.create(value);
+    } else {
+      user = await inMemoryStorage.createUser(value);
+    }
 
     // Generate JWT token
     const token = jwt.sign(
-      { userId: user.id, role: user.role },
+      { userId: user._id, role: user.role },
       process.env.JWT_SECRET || 'raksha-setu-secret',
       { expiresIn: '7d' }
     );
@@ -63,13 +80,13 @@ router.post('/register', async (req: Request, res: Response) => {
     req.session = req.session || {};
     req.session.token = token;
 
-    logger.info('User registered successfully', { userId: user.id, email: user.email });
+    logger.info('User registered successfully', { userId: user._id, email: user.email });
 
     res.status(201).json({
       success: true,
       data: {
         user: {
-          id: user.id,
+          id: user._id,
           name: user.name,
           email: user.email,
           role: user.role,
@@ -101,38 +118,66 @@ router.post('/login', async (req: Request, res: Response) => {
     }
 
     // Find user and check password
-    const isPasswordValid = await sqliteUser.comparePassword(value.email, value.password);
-    
-    if (!isPasswordValid) {
-      return res.status(401).json({
-        success: false,
-        error: 'Invalid email or password'
-      });
+    let user;
+    if (isMongoConnected()) {
+      user = await User.findOne({ email: value.email });
+      if (!user) {
+        return res.status(401).json({
+          success: false,
+          error: 'Invalid email or password'
+        });
+      }
+      
+      const isPasswordValid = await user.comparePassword(value.password);
+      if (!isPasswordValid) {
+        return res.status(401).json({
+          success: false,
+          error: 'Invalid email or password'
+        });
+      }
+      
+      if (!user.isActive) {
+        return res.status(401).json({
+          success: false,
+          error: 'Account is deactivated'
+        });
+      }
+      
+      // Update last login
+      user.lastLogin = new Date();
+      await user.save();
+    } else {
+      user = await inMemoryStorage.findUserByEmail(value.email);
+      if (!user) {
+        return res.status(401).json({
+          success: false,
+          error: 'Invalid email or password'
+        });
+      }
+      
+      // Simple password check for in-memory storage
+      if (user.password !== value.password) {
+        return res.status(401).json({
+          success: false,
+          error: 'Invalid email or password'
+        });
+      }
+      
+      if (!user.isActive) {
+        return res.status(401).json({
+          success: false,
+          error: 'Account is deactivated'
+        });
+      }
+      
+      // Update last login
+      user.lastLogin = new Date();
+      await inMemoryStorage.updateUser(user._id, { lastLogin: user.lastLogin });
     }
-
-    // Get user details
-    const user = await sqliteUser.findByEmail(value.email);
-    
-    if (!user) {
-      return res.status(401).json({
-        success: false,
-        error: 'Invalid email or password'
-      });
-    }
-
-    if (!user.isActive) {
-      return res.status(401).json({
-        success: false,
-        error: 'Account is deactivated'
-      });
-    }
-
-    // Update last login
-    await sqliteUser.updateLastLogin(user.id);
 
     // Generate JWT token
     const token = jwt.sign(
-      { userId: user.id, role: user.role },
+      { userId: user._id, role: user.role },
       process.env.JWT_SECRET || 'raksha-setu-secret',
       { expiresIn: '7d' }
     );
@@ -141,13 +186,13 @@ router.post('/login', async (req: Request, res: Response) => {
     req.session = req.session || {};
     req.session.token = token;
 
-    logger.info('User logged in successfully', { userId: user.id, email: user.email });
+    logger.info('User logged in successfully', { userId: user._id, email: user.email });
 
     res.json({
       success: true,
       data: {
         user: {
-          id: user.id,
+          id: user._id,
           name: user.name,
           email: user.email,
           role: user.role,
@@ -174,7 +219,7 @@ router.get('/profile', authenticate, async (req: AuthRequest, res: Response) => 
       success: true,
       data: {
         user: {
-          id: req.user.id,
+          id: req.user._id,
           name: req.user.name,
           email: req.user.email,
           role: req.user.role,
@@ -211,7 +256,11 @@ router.put('/profile', authenticate, async (req: AuthRequest, res: Response) => 
       updateData.walletAddress = walletAddress;
     }
 
-    const user = await sqliteUser.update(req.user.id, updateData);
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      updateData,
+      { new: true, runValidators: true }
+    );
 
     if (!user) {
       return res.status(404).json({
@@ -224,7 +273,7 @@ router.put('/profile', authenticate, async (req: AuthRequest, res: Response) => 
       success: true,
       data: {
         user: {
-          id: user.id,
+          id: user._id,
           name: user.name,
           email: user.email,
           role: user.role,

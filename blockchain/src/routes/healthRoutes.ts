@@ -55,4 +55,33 @@ router.get('/detailed', (req: Request, res: Response) => {
   res.status(200).json(detailedHealth);
 });
 
+// Database test endpoint
+router.get('/db-test', async (req: Request, res: Response) => {
+  try {
+    const mongoose = require('mongoose');
+    const connectionState = mongoose.connection.readyState;
+    
+    let dbStatus = 'Disconnected';
+    if (connectionState === 1) dbStatus = 'Connected';
+    else if (connectionState === 2) dbStatus = 'Connecting';
+    else if (connectionState === 3) dbStatus = 'Disconnecting';
+    
+    res.json({
+      success: true,
+      data: {
+        connectionState,
+        status: dbStatus,
+        host: mongoose.connection.host,
+        name: mongoose.connection.name,
+        readyState: connectionState
+      }
+    });
+  } catch (error: any) {
+    res.json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
 export default router;

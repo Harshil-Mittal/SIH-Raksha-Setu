@@ -8,6 +8,8 @@ export interface User {
   language: string;
   nationality?: string;
   digitalId?: string;
+  walletAddress?: string;
+  walletMnemonic?: string;
   emergencyContacts?: string; // encrypted
   profileImage?: string;
   isActive: boolean;

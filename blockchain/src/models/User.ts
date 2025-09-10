@@ -28,7 +28,8 @@ const UserSchema = new Schema<IUser>({
     unique: true,
     lowercase: true,
     trim: true,
-    match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email']
+    match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email'],
+    index: true
   },
   password: {
     type: String,
@@ -46,6 +47,7 @@ const UserSchema = new Schema<IUser>({
     type: String,
     unique: true,
     sparse: true, // Allow multiple null values
+    index: true,
     validate: {
       validator: function(v: string) {
         return !v || /^0x[a-fA-F0-9]{40}$/.test(v);
@@ -70,10 +72,10 @@ const UserSchema = new Schema<IUser>({
   }
 });
 
-// Index for better query performance
-UserSchema.index({ email: 1 });
-UserSchema.index({ walletAddress: 1 });
+// Additional indexes for better query performance
 UserSchema.index({ role: 1 });
+UserSchema.index({ isActive: 1 });
+UserSchema.index({ createdAt: -1 });
 
 // Hash password before saving
 UserSchema.pre('save', async function(next) {

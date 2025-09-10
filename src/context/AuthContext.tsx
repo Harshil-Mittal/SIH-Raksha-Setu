@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { AuthState, User, LoginCredentials, SignupData, UserRole, DEMO_ACCOUNTS } from '@/types/auth';
 import { authApi } from '@/services/authApi';
+import { blockchainService } from '@/services/blockchainService';
 
 interface AuthContextType {
   auth: AuthState;
@@ -178,6 +179,47 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (response.success && response.data) {
         const { user, token } = response.data;
         
+        // Create digital ID for the user
+        try {
+          // First generate a wallet
+          const walletResponse = await blockchainService.generateWallet();
+          
+          if (walletResponse.success && walletResponse.data) {
+            // Create digital ID with the generated wallet
+            const digitalIDResponse = await blockchainService.createDigitalID({
+              userId: user.id,
+              name: user.name,
+              email: user.email,
+              role: user.role,
+              walletAddress: walletResponse.data.address
+            });
+            
+            if (digitalIDResponse.success && digitalIDResponse.data) {
+              // Update user with digital ID and wallet info
+              const updatedUser = {
+                ...user,
+                digitalId: digitalIDResponse.data.id,
+                walletAddress: walletResponse.data.address,
+                walletMnemonic: walletResponse.data.mnemonic
+              };
+              
+              localStorage.setItem('raksha_user', JSON.stringify(updatedUser));
+              dispatch({ type: 'LOGIN_SUCCESS', payload: { user: updatedUser, token } });
+              
+              console.log('✅ Digital ID created successfully:', digitalIDResponse.data.id);
+              return true;
+            } else {
+              console.warn('⚠️ Digital ID creation failed, but user registered successfully');
+            }
+          } else {
+            console.warn('⚠️ Wallet generation failed, but user registered successfully');
+          }
+        } catch (blockchainError) {
+          console.error('Blockchain service error:', blockchainError);
+          console.warn('⚠️ Blockchain services unavailable, but user registered successfully');
+        }
+        
+        // Fallback: proceed without digital ID if blockchain services fail
         localStorage.setItem('raksha_token', token);
         localStorage.setItem('raksha_user', JSON.stringify(user));
         

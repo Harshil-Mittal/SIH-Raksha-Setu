@@ -11,17 +11,16 @@ import { logger } from './utils/logger';
 import { errorHandler } from './middleware/errorHandler';
 import { notFoundHandler } from './middleware/notFoundHandler';
 import { authenticate } from './middleware/auth';
-import { connectDB } from './config/database';
+import connectDB from './config/database';
 import blockchainRoutes from './routes/blockchainRoutes';
 import simpleBlockchainRoutes from './routes/simpleBlockchainRoutes';
 import authRoutes from './routes/authRoutes';
 import healthRoutes from './routes/healthRoutes';
+import qrRoutes from './routes/qrRoutes';
+import portalRoutes from './routes/portalRoutes';
 
 // Load environment variables
 dotenv.config();
-
-// Initialize MongoDB database
-connectDB();
 
 const app = express();
 const PORT = process.env.BLOCKCHAIN_PORT || 3002;
@@ -80,6 +79,8 @@ app.use(session({
 // Routes
 app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/qr', qrRoutes);
+app.use('/api/portal', portalRoutes);
 app.use('/api', simpleBlockchainRoutes); // Using simplified routes without auth for now
 // app.use('/api', authenticate, blockchainRoutes); // Full blockchain routes with auth
 
@@ -112,13 +113,33 @@ app.get('/', (req, res) => {
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-// Start server
-app.listen(PORT, () => {
-  logger.info(`🚀 RakshaSetu Blockchain API server running on port ${PORT}`);
-  logger.info(`📝 Environment: ${process.env.NODE_ENV || 'development'}`);
-  logger.info(`🌐 CORS enabled for: ${process.env.CORS_ORIGIN || 'http://localhost:5173'}`);
-  logger.info(`⛓️  Blockchain RPC: ${process.env.BLOCKCHAIN_RPC_URL || 'http://localhost:8545'}`);
-  logger.info(`📄 Contract Address: ${process.env.CONTRACT_ADDRESS || 'Not deployed'}`);
-});
+// Initialize MongoDB database and start server
+const startServer = async () => {
+  try {
+    // Connect to MongoDB first
+    const mongoConnected = await connectDB();
+    
+    if (mongoConnected) {
+      logger.info('✅ MongoDB connection established - Full functionality available');
+    } else {
+      logger.warn('⚠️  MongoDB connection failed - Using in-memory storage only');
+    }
+    
+    // Start the server
+    app.listen(PORT, () => {
+      logger.info(`🚀 RakshaSetu Blockchain API server running on port ${PORT}`);
+      logger.info(`📝 Environment: ${process.env.NODE_ENV || 'development'}`);
+      logger.info(`🌐 CORS enabled for: ${process.env.CORS_ORIGIN || 'http://localhost:5173'}`);
+      logger.info(`⛓️  Blockchain RPC: ${process.env.BLOCKCHAIN_RPC_URL || 'http://localhost:8545'}`);
+      logger.info(`📄 Contract Address: ${process.env.CONTRACT_ADDRESS || 'Not deployed'}`);
+      logger.info(`🗄️  Database: ${mongoConnected ? 'MongoDB Atlas Connected' : 'In-Memory Only'}`);
+    });
+  } catch (error) {
+    logger.error('Failed to start server:', error);
+    process.exit(1);
+  }
+};
+
+startServer();
 
 export default app;

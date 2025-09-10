@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -10,15 +10,18 @@ import {
   Calendar, 
   Shield,
   Phone,
-  Clock
+  Clock,
+  Plus
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
+import { blockchainService } from '@/services/blockchainService';
 import MapView from './MapView';
 import TripsView from './TripsView';
 
 const TouristHome: React.FC = () => {
-  const { auth } = useAuth();
+  const { auth, updateProfile } = useAuth();
   const [currentView, setCurrentView] = useState<'home' | 'map' | 'trips'>('home');
+  const [isCreatingDigitalID, setIsCreatingDigitalID] = useState(false);
   const safetyScore = 85; // Mock safety score
   const tripEndDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days from now
 
@@ -36,6 +39,18 @@ const TouristHome: React.FC = () => {
 
   const safetyBadge = getSafetyBadge(safetyScore);
 
+  // Auto-create digital ID for existing users who don't have one
+  useEffect(() => {
+    if (auth.user && !auth.user.digitalId && !isCreatingDigitalID) {
+      // Small delay to let the component render first
+      const timer = setTimeout(() => {
+        handleCreateDigitalID();
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [auth.user?.id]); // Only run when user changes
+
   const handleSOSClick = () => {
     // In a real app, this would trigger emergency services
     alert('SOS Alert Sent! Emergency services have been notified.');
@@ -44,6 +59,49 @@ const TouristHome: React.FC = () => {
   const handleEmergencyCall = () => {
     // In a real app, this would initiate a phone call
     window.open('tel:+911234567890');
+  };
+
+  const handleCreateDigitalID = async () => {
+    if (!auth.user) return;
+    
+    setIsCreatingDigitalID(true);
+    try {
+      // First generate a wallet
+      const walletResponse = await blockchainService.generateWallet();
+      
+      if (walletResponse.success && walletResponse.data) {
+        // Create digital ID with the generated wallet
+        const digitalIDResponse = await blockchainService.createDigitalID({
+          userId: auth.user.id,
+          name: auth.user.name,
+          email: auth.user.email,
+          role: auth.user.role,
+          walletAddress: walletResponse.data.address
+        });
+        
+        if (digitalIDResponse.success && digitalIDResponse.data) {
+          // Update user profile with digital ID and wallet info
+          updateProfile({
+            digitalId: digitalIDResponse.data.id,
+            walletAddress: walletResponse.data.address,
+            walletMnemonic: walletResponse.data.mnemonic
+          });
+          
+          console.log('✅ Digital ID created successfully:', digitalIDResponse.data.id);
+        } else {
+          console.error('❌ Digital ID creation failed:', digitalIDResponse.error);
+          alert('Failed to create digital ID. Please try again.');
+        }
+      } else {
+        console.error('❌ Wallet generation failed:', walletResponse.error);
+        alert('Failed to generate wallet. Please try again.');
+      }
+    } catch (error) {
+      console.error('❌ Error creating digital ID:', error);
+      alert('An error occurred while creating your digital ID. Please try again.');
+    } finally {
+      setIsCreatingDigitalID(false);
+    }
   };
 
   if (currentView === 'map') {
@@ -93,17 +151,45 @@ const TouristHome: React.FC = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="font-mono text-sm">{auth.user?.digitalId}</div>
-                <div className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
-                  <Clock className="w-3 h-3" />
-                  Valid till {tripEndDate.toLocaleDateString()}
+            <div className="space-y-3">
+              {auth.user?.digitalId ? (
+                <>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="font-mono text-sm break-all">{auth.user.digitalId}</div>
+                      <div className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
+                        <Clock className="w-3 h-3" />
+                        Valid till {tripEndDate.toLocaleDateString()}
+                      </div>
+                    </div>
+                    <div className="w-16 h-16 bg-gradient-brand rounded-lg flex items-center justify-center">
+                      <QrCode className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  {auth.user.walletAddress && (
+                    <div className="pt-2 border-t">
+                      <div className="text-xs text-muted-foreground">Wallet Address:</div>
+                      <div className="font-mono text-xs break-all">{auth.user.walletAddress}</div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="text-center py-4">
+                  <div className="text-sm text-muted-foreground mb-3">No Digital ID found</div>
+                  <Button 
+                    onClick={handleCreateDigitalID}
+                    disabled={isCreatingDigitalID}
+                    className="w-full"
+                    size="sm"
+                  >
+                    <Plus className="w-4 h-4 mr-2" />
+                    {isCreatingDigitalID ? 'Creating...' : 'Create Digital ID'}
+                  </Button>
+                  <div className="text-xs text-muted-foreground mt-2">
+                    This will generate a blockchain wallet and digital identity
+                  </div>
                 </div>
-              </div>
-              <div className="w-16 h-16 bg-gradient-brand rounded-lg flex items-center justify-center">
-                <QrCode className="w-8 h-8 text-white" />
-              </div>
+              )}
             </div>
           </CardContent>
         </Card>
