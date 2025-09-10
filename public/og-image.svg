@@ -1,0 +1,76 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  
+  <!-- Header Background -->
+  <rect width="1200" height="200" fill="#1E40AF"/>
+  
+  <!-- Logo -->
+  <g transform="translate(100, 80)">
+    <rect width="60" height="60" rx="12" fill="#F97316"/>
+    <path d="M15 30L30 15L45 30V45L30 60L15 45V30Z" fill="white"/>
+    <circle cx="30" cy="30" r="8" fill="#1E40AF"/>
+    <path d="M26 30L28.5 32.5L34 27" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="120" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">
+    RakshaSetu
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="24" fill="#E2E8F0">
+    Your Digital Companion for Safe Journeys
+  </text>
+  
+  <!-- Content Area -->
+  <g transform="translate(100, 250)">
+    <!-- Features -->
+    <g transform="translate(0, 0)">
+      <rect width="300" height="80" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1E40AF">Digital ID & Blockchain</text>
+      <text x="20" y="50" font-family="Arial, sans-serif" font-size="14" fill="#64748B">Secure digital identity management</text>
+    </g>
+    
+    <g transform="translate(350, 0)">
+      <rect width="300" height="80" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1E40AF">Real-time Safety Monitoring</text>
+      <text x="20" y="50" font-family="Arial, sans-serif" font-size="14" fill="#64748B">Live alerts and emergency response</text>
+    </g>
+    
+    <g transform="translate(700, 0)">
+      <rect width="300" height="80" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1E40AF">Multi-language Support</text>
+      <text x="20" y="50" font-family="Arial, sans-serif" font-size="14" fill="#64748B">Available in 12+ Indian languages</text>
+    </g>
+    
+    <!-- Bottom Features -->
+    <g transform="translate(0, 120)">
+      <rect width="300" height="80" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1E40AF">Zone Management</text>
+      <text x="20" y="50" font-family="Arial, sans-serif" font-size="14" fill="#64748B">Smart tourist zone monitoring</text>
+    </g>
+    
+    <g transform="translate(350, 120)">
+      <rect width="300" height="80" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1E40AF">Police Dashboard</text>
+      <text x="20" y="50" font-family="Arial, sans-serif" font-size="14" fill="#64748B">Comprehensive law enforcement tools</text>
+    </g>
+    
+    <g transform="translate(700, 120)">
+      <rect width="300" height="80" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1E40AF">Analytics & Reports</text>
+      <text x="20" y="50" font-family="Arial, sans-serif" font-size="14" fill="#64748B">Data-driven safety insights</text>
+    </g>
+  </g>
+  
+  <!-- Footer -->
+  <g transform="translate(100, 550)">
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="16" fill="#64748B">
+      Unified safety portal for tourists, police, and tourism authorities
+    </text>
+    <text x="0" y="45" font-family="Arial, sans-serif" font-size="14" fill="#94A3B8">
+      Real-time monitoring • Emergency alerts • Digital identity • Multi-language support
+    </text>
+  </g>
+</svg>
