@@ -1,244 +1,169 @@
-# RakshaSetu Companion App
+# 🛡️ RakshaSetu Companion
 
-A comprehensive digital safety companion for tourists and travelers in India, featuring multilingual support, real-time safety monitoring, and emergency response capabilities.
+**Your Digital Companion for Safe Journeys**
 
-## 🌟 Features
+A unified safety portal for tourists, police, and tourism authorities featuring real-time safety monitoring, blockchain-based digital ID management, and comprehensive multi-language support.
 
-### 🛡️ Core Safety Features
-- **Real-time Safety Monitoring**: Live alerts and incident tracking
-- **Interactive Safety Map**: GPS-based zone management and tourist tracking
-- **Emergency SOS**: One-tap emergency response system
-- **Digital ID System**: Secure tourist identification and verification
-- **E-FIR Management**: Digital First Information Report system for police
+## ✨ Features
 
-### 🌐 Multilingual Support (12 Languages)
-- **English** - English
-- **Hindi** - हिन्दी
-- **Assamese** - অসমীয়া
-- **Bengali** - বাংলা
-- **Manipuri** - মণিপুরী
-- **Khasi** - খাসি
-- **Nagamese** - নাগামিজ
-- **Bodo** - बड़ो
-- **Tamil** - தமிழ்
-- **Telugu** - తెలుగు
-- **Marathi** - मराठी
-- **Gujarati** - ગુજરાતી
+### 🔐 **Blockchain & Digital Identity**
+- **Real Blockchain Implementation**: Custom Proof-of-Work blockchain for digital ID management
+- **Digital Wallet Generation**: Secure wallet creation with mnemonic phrases
+- **QR Code Integration**: Generate QR codes for digital IDs
+- **MongoDB Persistence**: Data storage with in-memory fallback
 
-### 🎯 Language Features
-- **Real-time Translation**: Translate text between all supported languages
-- **Text-to-Speech**: Convert text to speech in native voices
-- **Speech-to-Text**: Voice input recognition in multiple languages
-- **Language Detection**: Automatic language identification
-- **Batch Translation**: Translate multiple texts simultaneously
+### 🌐 **Multi-Language Support**
+- **12+ Indian Languages**: English, Hindi, Assamese, Bengali, Manipuri, Khasi, Nagamese, Bodo, Tamil, Telugu, Marathi, Gujarati
+- **Real-time Translation**: Dynamic language switching across the entire application
+- **Localized UI**: All components support multiple languages
 
-### 👥 User Roles
-- **Tourist**: Safety information, trip management, emergency features
-- **Police Officer**: Incident management, tourist tracking, E-FIR processing
-- **Tourism Department**: Analytics, zone management, tourist insights
-- **System Admin**: User management, system monitoring, configuration
+### 👥 **Role-Based Access**
+- **Tourist Dashboard**: Digital ID management, trip planning, emergency contacts
+- **Police Dashboard**: Real-time monitoring, analytics, zone management
+- **Tourism Authority**: Comprehensive oversight and reporting tools
+
+### 🚨 **Safety Features**
+- **Real-time Alerts**: Live safety notifications and emergency response
+- **Zone Management**: Smart tourist zone monitoring and management
+- **Emergency Contacts**: Quick access to emergency services
+- **Safety Analytics**: Data-driven insights and reporting
+
+### 🎨 **Modern UI/UX**
+- **Responsive Design**: Works seamlessly on desktop and mobile
+- **Dark/Light Mode**: Toggle between themes
+- **Custom Branding**: Professional RakshaSetu identity
+- **Intuitive Navigation**: User-friendly interface design
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ and npm
-- Modern web browser with microphone access (for voice features)
+- Node.js (v18 or higher)
+- npm or yarn
+- MongoDB (local or Atlas)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd raksha-setu-companion-001-72
+   git clone https://github.com/yourusername/raksha-setu-companion.git
+   cd raksha-setu-companion
    ```
 
-2. **Install all dependencies**
+2. **Install dependencies**
    ```bash
    npm run install:all
    ```
 
-3. **Start development servers**
+3. **Environment Setup**
    ```bash
-   npm run dev:full
+   # Copy environment files
+   cp blockchain/.env.example blockchain/.env
+   cp backend/.env.example backend/.env
+   
+   # Update MongoDB connection string in blockchain/.env
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/raksha-setu
    ```
 
-   This will start both frontend (http://localhost:5173) and backend (http://localhost:3001) servers.
+4. **Start the application**
+   ```bash
+   # Start all services
+   npm run dev:full
+   
+   # Or start individually
+   npm run dev:frontend    # Frontend (port 8080)
+   npm run dev:backend     # Backend API (port 3001)
+   npm run dev:blockchain  # Blockchain API (port 3002)
+   ```
 
-### Alternative Setup
-
-**Frontend only:**
-```bash
-npm install
-npm run dev
-```
-
-**Backend only:**
-```bash
-cd backend
-npm install
-npm run dev
-```
-
-## 📁 Project Structure
+## 🏗️ Architecture
 
 ```
-raksha-setu-companion-001-72/
-├── src/                          # Frontend React application
-│   ├── components/               # React components
-│   │   ├── auth/                # Authentication components
-│   │   ├── dashboard/           # Dashboard components
-│   │   ├── language/            # Language feature components
-│   │   ├── map/                 # Map components
-│   │   ├── tourist/             # Tourist-specific components
-│   │   └── ui/                  # Reusable UI components
-│   ├── context/                 # React context providers
-│   ├── hooks/                   # Custom React hooks
-│   ├── i18n/                    # Internationalization files
-│   ├── pages/                   # Page components
-│   ├── services/                # API services
-│   └── types/                   # TypeScript type definitions
-├── backend/                     # Node.js/Express backend
+raksha-setu-companion/
+├── src/                    # Frontend React application
+│   ├── components/         # UI components
+│   ├── context/           # React contexts
+│   ├── hooks/             # Custom hooks
+│   ├── i18n/              # Internationalization
+│   ├── services/          # API services
+│   └── types/             # TypeScript types
+├── blockchain/            # Blockchain API service
 │   ├── src/
-│   │   ├── routes/              # API route handlers
-│   │   ├── services/            # Business logic services
-│   │   ├── middleware/          # Express middleware
-│   │   └── utils/               # Utility functions
+│   │   ├── models/        # MongoDB models
+│   │   ├── routes/        # API routes
+│   │   ├── services/      # Blockchain services
+│   │   └── config/        # Configuration
 │   └── package.json
-├── public/                      # Static assets
-└── package.json                 # Frontend dependencies
+├── backend/               # Additional backend services
+└── public/                # Static assets
 ```
 
-## 🔧 API Endpoints
-
-### Health Check
-- `GET /api/health` - Basic health check
-- `GET /api/health/detailed` - Detailed system information
-
-### Language Services
-- `GET /api/language/supported` - Get supported languages
-- `POST /api/language/translate` - Translate text
-- `POST /api/language/translate/batch` - Batch translate
-- `POST /api/language/detect` - Detect language
-- `POST /api/language/tts` - Text-to-speech
-- `POST /api/language/stt` - Speech-to-text
-- `GET /api/language/web-speech/config` - Web Speech API config
-
-## 🎨 Technology Stack
+## 🔧 Available Scripts
 
 ### Frontend
-- **React 18** with TypeScript
-- **Vite** for build tooling
-- **Tailwind CSS** for styling
-- **Radix UI** for accessible components
-- **React Router** for navigation
-- **i18next** for internationalization
-- **Zustand** for state management
-- **React Query** for data fetching
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
 
-### Backend
-- **Node.js** with TypeScript
-- **Express.js** web framework
-- **CORS** for cross-origin requests
-- **Helmet** for security headers
-- **Winston** for logging
-- **Axios** for HTTP requests
+### Full Stack
+- `npm run dev:full` - Start all services
+- `npm run build:full` - Build all services
+- `npm run install:all` - Install all dependencies
 
-### Language Services
-- **LibreTranslate** for free translation
-- **Web Speech API** for TTS/STT
-- **i18next** for frontend localization
+### Blockchain
+- `npm run dev:blockchain` - Start blockchain API
+- `npm run build:blockchain` - Build blockchain service
 
-## 🌍 Environment Configuration
+## 🌍 Internationalization
 
-### Frontend (.env)
-```env
-VITE_API_BASE_URL=http://localhost:3001/api
-```
+The application supports 12+ Indian languages with real-time switching:
 
-### Backend (.env)
-```env
-PORT=3001
-NODE_ENV=development
-CORS_ORIGIN=http://localhost:5173
-LIBRETRANSLATE_URL=https://libretranslate.de
-LOG_LEVEL=info
-```
+- **English** (en)
+- **Hindi** (hi) - हिन्दी
+- **Assamese** (as) - অসমীয়া
+- **Bengali** (bn) - বাংলা
+- **Manipuri** (mni) - মণিপুরী
+- **Khasi** (kha) - খাসি
+- **Nagamese** (nsm) - নাগামিজ
+- **Bodo** (brx) - बड़ो
+- **Tamil** (ta) - தமிழ்
+- **Telugu** (te) - తెలుగు
+- **Marathi** (mr) - मराठी
+- **Gujarati** (gu) - ગુજરાતી
 
-## 🚀 Deployment
+## 🔐 Authentication
 
-### Frontend
-```bash
-npm run build
-# Deploy dist/ folder to your hosting service
-```
+- **JWT-based Authentication**: Secure token-based auth
+- **Role-based Access Control**: Different dashboards for different user types
+- **Session Management**: Persistent login sessions
+- **Password Security**: Bcrypt hashing for passwords
 
-### Backend
-```bash
-cd backend
-npm run build
-npm start
-# Deploy to your server
-```
+## 🗄️ Database
 
-## 🧪 Testing
+- **MongoDB Atlas**: Cloud database for production
+- **In-memory Fallback**: Local storage when MongoDB is unavailable
+- **Data Models**: Users, Digital IDs, Sessions
+- **Connection Management**: Automatic fallback and reconnection
 
-### Frontend Testing
-```bash
-npm run lint
-```
+## 🛡️ Security Features
 
-### Backend Testing
-```bash
-cd backend
-npm test
-```
+- **CORS Protection**: Configured for secure cross-origin requests
+- **Rate Limiting**: API rate limiting for security
+- **Input Validation**: Joi schema validation
+- **Error Handling**: Comprehensive error management
+- **Logging**: Winston-based logging system
 
-## 📱 Usage Examples
+## 📱 Mobile Support
 
-### Translation API
-```javascript
-import { languageApi } from '@/services/languageApi';
-
-// Translate text
-const result = await languageApi.translateText({
-  text: "Hello, how are you?",
-  sourceLanguage: "en",
-  targetLanguage: "hi"
-});
-console.log(result.translatedText); // "नमस्ते, आप कैसे हैं?"
-```
-
-### React Hook Usage
-```javascript
-import { useLanguageApi } from '@/hooks/useLanguageApi';
-
-function MyComponent() {
-  const { translateText, speakText, startListening } = useLanguageApi();
-  
-  const handleTranslate = async () => {
-    const result = await translateText({
-      text: "Welcome to India",
-      sourceLanguage: "en",
-      targetLanguage: "hi"
-    });
-    await speakText(result.translatedText, "hi");
-  };
-}
-```
-
-## 🔒 Security Features
-
-- **CORS Protection**: Configured for specific origins
-- **Rate Limiting**: Prevents API abuse
-- **Input Validation**: All inputs are validated
-- **Error Handling**: Secure error responses
-- **Helmet.js**: Security headers
+- **Responsive Design**: Works on all device sizes
+- **Touch-friendly**: Optimized for mobile interactions
+- **Progressive Web App**: PWA capabilities
+- **Offline Support**: Basic offline functionality
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
@@ -248,29 +173,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **LibreTranslate** for free translation services
-- **Radix UI** for accessible component primitives
-- **Tailwind CSS** for utility-first styling
-- **React Community** for excellent documentation and tools
+- Built with React, TypeScript, and Vite
+- UI components from Shadcn/UI
+- Blockchain implementation using Ethers.js
+- Database management with MongoDB and Mongoose
+- Internationalization with i18next
 
 ## 📞 Support
 
-For support and questions:
-- Create an issue in the repository
-- Contact the development team
-- Check the documentation
-
-## 🔮 Future Roadmap
-
-- [ ] Mobile app development (React Native)
-- [ ] Offline translation support
-- [ ] Advanced analytics dashboard
-- [ ] Integration with emergency services
-- [ ] AI-powered safety recommendations
-- [ ] Multi-platform deployment
-- [ ] Advanced voice recognition
-- [ ] Real-time collaboration features
+For support, email support@rakshasetu.com or create an issue in this repository.
 
 ---
 
-**RakshaSetu** - Your digital companion for safe travel in India 🇮🇳
+**RakshaSetu** - Ensuring safe journeys for all travelers across India 🇮🇳
