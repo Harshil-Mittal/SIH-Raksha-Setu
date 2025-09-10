@@ -9,17 +9,17 @@ import { useAuth } from '@/context/AuthContext';
 import { SignupData, UserRole } from '@/types/auth';
 import { Shield, Users, UserCheck, Settings, Eye, EyeOff } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface SignupFormProps {
   onSwitchToLogin: () => void;
 }
 
-const getRoleOptions = (): { value: UserRole; label: string; description: string; icon: React.ElementType }[] => [
-  { value: 'tourist', label: 'Tourist', description: 'Travel and explore safely', icon: Users },
-  { value: 'police', label: 'Police Officer', description: 'Maintain law and order', icon: Shield },
-  { value: 'tourism', label: 'Tourism Official', description: 'Support tourism activities', icon: UserCheck },
-  { value: 'admin', label: 'Administrator', description: 'Manage system operations', icon: Settings },
+const getRoleOptions = (t: any): { value: UserRole; label: string; description: string; icon: React.ElementType }[] => [
+  { value: 'tourist', label: t('roles.tourist'), description: t('roles.touristDesc'), icon: Users },
+  { value: 'police', label: t('roles.police'), description: t('roles.policeDesc'), icon: Shield },
+  { value: 'tourism', label: t('roles.tourism'), description: t('roles.tourismDesc'), icon: UserCheck },
+  { value: 'admin', label: t('roles.admin'), description: t('roles.adminDesc'), icon: Settings },
 ];
 
 const languages = [
@@ -38,7 +38,7 @@ const languages = [
 ];
 
 const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
-  // const { t } = useTranslation();
+  const { tSignup, tError, tCommon } = useTranslation();
   const [formData, setFormData] = useState<SignupData>({
     name: '',
     email: '',
@@ -111,8 +111,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
     const success = await signup(apiFormData);
     if (success) {
       toast({
-        title: 'Account Created',
-        description: 'Welcome to RakshaSetu!',
+        title: tSignup('success'),
+        description: tSignup('welcome'),
       });
     } else {
       toast({
@@ -123,7 +123,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
     }
   };
 
-  const roleOptions = getRoleOptions();
+  const roleOptions = getRoleOptions(tSignup);
 
   return (
     <Card className="w-full max-w-md shadow-elevated">
@@ -131,19 +131,19 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
         <div className="mx-auto w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center">
           <Shield className="w-6 h-6 text-white" />
         </div>
-        <CardTitle className="text-2xl">Create Account</CardTitle>
+        <CardTitle className="text-2xl">{tSignup('title')}</CardTitle>
         <CardDescription>
-          Join RakshaSetu for safe travels
+          {tSignup('tagline')}
         </CardDescription>
       </CardHeader>
       
       <CardContent className="space-y-4">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Full Name</Label>
+            <Label htmlFor="name">{tSignup('name')}</Label>
             <Input
               id="name"
-              placeholder="Enter your full name"
+              placeholder={tSignup('namePlaceholder')}
               value={formData.name}
               onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
               required
@@ -151,7 +151,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">{tSignup('email')}</Label>
             <Input
               id="email"
               type="email"
@@ -163,7 +163,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">{tSignup('password')}</Label>
             <div className="relative">
               <Input
                 id="password"
@@ -191,7 +191,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
 
           {formData.role === 'tourist' && (
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Label htmlFor="confirmPassword">{tSignup('confirmPassword')}</Label>
               <div className="relative">
                 <Input
                   id="confirmPassword"
@@ -215,7 +215,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
           )}
           
           <div className="space-y-2">
-            <Label>Role</Label>
+            <Label>{tSignup('role')}</Label>
             <Select value={formData.role} onValueChange={(role: UserRole) => setFormData(prev => ({ ...prev, role }))}>
               <SelectTrigger>
                 <SelectValue />
@@ -240,7 +240,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
           </div>
           
           <div className="space-y-2">
-            <Label>Language</Label>
+            <Label>{tSignup('language')}</Label>
             <Select value={formData.language} onValueChange={(language) => setFormData(prev => ({ ...prev, language }))}>
               <SelectTrigger>
                 <SelectValue />
@@ -258,10 +258,10 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
           {formData.role === 'tourist' && (
             <>
               <div className="space-y-2">
-                <Label htmlFor="nationality">Nationality</Label>
+                <Label htmlFor="nationality">{tSignup('nationality')}</Label>
                 <Input
                   id="nationality"
-                  placeholder="e.g., Indian, American"
+                  placeholder={tSignup('nationalityPlaceholder')}
                   value={formData.nationality || ''}
                   onChange={(e) => setFormData(prev => ({ ...prev, nationality: e.target.value }))}
                   required
@@ -269,10 +269,10 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="emergencyContactName">Emergency Contact Name</Label>
+                <Label htmlFor="emergencyContactName">{tSignup('tourist.emergencyContactName')}</Label>
                 <Input
                   id="emergencyContactName"
-                  placeholder="Contact person's name"
+                  placeholder={tSignup('tourist.emergencyContactNamePlaceholder')}
                   value={touristDetails.emergencyContactName}
                   onChange={(e) => setTouristDetails(prev => ({ ...prev, emergencyContactName: e.target.value }))}
                   required
@@ -280,10 +280,10 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="emergencyContact">Emergency Contact Number</Label>
+                <Label htmlFor="emergencyContact">{tSignup('tourist.emergencyContact')}</Label>
                 <Input
                   id="emergencyContact"
-                  placeholder="+91 9876543210"
+                  placeholder={tSignup('tourist.emergencyContactPlaceholder')}
                   value={touristDetails.emergencyContact}
                   onChange={(e) => setTouristDetails(prev => ({ ...prev, emergencyContact: e.target.value }))}
                   required
@@ -321,20 +321,20 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="accommodationDetails">Accommodation Details</Label>
+                <Label htmlFor="accommodationDetails">{tSignup('tourist.accommodationDetails')}</Label>
                 <Input
                   id="accommodationDetails"
-                  placeholder="Hotel name, address"
+                  placeholder={tSignup('tourist.accommodationPlaceholder')}
                   value={touristDetails.accommodationDetails}
                   onChange={(e) => setTouristDetails(prev => ({ ...prev, accommodationDetails: e.target.value }))}
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="itinerary">Travel Itinerary</Label>
+                <Label htmlFor="itinerary">{tSignup('tourist.itinerary')}</Label>
                 <Textarea
                   id="itinerary"
-                  placeholder="Places you plan to visit..."
+                  placeholder={tSignup('tourist.itineraryPlaceholder')}
                   value={touristDetails.itinerary}
                   onChange={(e) => setTouristDetails(prev => ({ ...prev, itinerary: e.target.value }))}
                   rows={3}
@@ -348,14 +348,14 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSwitchToLogin }) => {
             className="w-full bg-gradient-brand hover:opacity-90" 
             disabled={auth.isLoading}
           >
-            {auth.isLoading ? 'Creating Account...' : 'Create Account'}
+            {auth.isLoading ? tSignup('creating') : tSignup('createAccount')}
           </Button>
         </form>
         
         <div className="text-center text-sm">
           <span className="text-muted-foreground">Already have an account? </span>
           <Button variant="link" className="p-0 h-auto" onClick={onSwitchToLogin}>
-            Sign in
+            {tSignup('haveAccount')}
           </Button>
         </div>
       </CardContent>

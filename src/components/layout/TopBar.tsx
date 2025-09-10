@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useNavigate } from 'react-router-dom';
 import SettingsDialog from '@/components/tourist/SettingsDialog';
 import HomeDialog from '@/components/tourist/HomeDialog';
@@ -22,6 +23,7 @@ import HomeDialog from '@/components/tourist/HomeDialog';
 const TopBar: React.FC = () => {
   const { auth, logout } = useAuth();
   const { currentLanguage, changeLanguage, isChanging } = useLanguage();
+  const { tTopbar, tCommon, tApp } = useTranslation();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [homeDialogOpen, setHomeDialogOpen] = useState(false);
   const navigate = useNavigate();
@@ -80,7 +82,7 @@ const TopBar: React.FC = () => {
             </span>
           </div>
           <div className="hidden sm:block text-xs text-muted-foreground border-l pl-3 ml-1">
-            Your Digital Companion for Safe Journeys
+            {tApp('tagline')}
           </div>
         </div>
 
@@ -90,12 +92,12 @@ const TopBar: React.FC = () => {
           <div className="hidden md:flex items-center gap-2">
             <Button variant="ghost" size="sm" onClick={handleHome}>
               <Home className="w-4 h-4 mr-2" />
-              Home
+              {tTopbar('home')}
             </Button>
             
             <Button variant="ghost" size="sm" onClick={handleSettings}>
               <Settings className="w-4 h-4 mr-2" />
-              Settings
+              {tTopbar('settings')}
             </Button>
             
             <Select value={currentLanguage} onValueChange={handleLanguageChange}>
@@ -152,18 +154,18 @@ const TopBar: React.FC = () => {
                   
                   <Button variant="ghost" className="justify-start" onClick={handleHome}>
                     <Home className="w-4 h-4 mr-3" />
-                    Home
+                    {tTopbar('home')}
                   </Button>
                   
                   <Button variant="ghost" className="justify-start" onClick={handleSettings}>
                     <Settings className="w-4 h-4 mr-3" />
-                    Settings
+                    {tTopbar('settings')}
                   </Button>
                   
                   <div className="px-3 py-2">
                     <div className="flex items-center gap-2 mb-2">
                       <Globe className="w-4 h-4" />
-                      <span className="text-sm font-medium">Language</span>
+                      <span className="text-sm font-medium">{tTopbar('language')}</span>
                     </div>
                     <Select value={currentLanguage} onValueChange={handleLanguageChange} disabled={isChanging}>
                       <SelectTrigger className="w-full">
@@ -184,12 +186,12 @@ const TopBar: React.FC = () => {
                   
                   <Button variant="ghost" className="justify-start" onClick={toggleTheme}>
                     {isDark ? <Sun className="w-4 h-4 mr-3" /> : <Moon className="w-4 h-4 mr-3" />}
-                    {isDark ? 'Light Mode' : 'Dark Mode'}
+                    {isDark ? 'Light Mode' : tTopbar('dark')}
                   </Button>
                   
                   <Button variant="ghost" className="justify-start text-destructive" onClick={handleLogout}>
                     <LogOut className="w-4 h-4 mr-3" />
-                    Logout
+                    {tTopbar('logout')}
                   </Button>
                 </div>
               </SheetContent>

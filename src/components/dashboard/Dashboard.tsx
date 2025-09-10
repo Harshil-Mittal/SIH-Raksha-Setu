@@ -16,6 +16,7 @@ import {
   Languages
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useNavigate } from 'react-router-dom';
 import InteractiveMap from '../map/InteractiveMap';
 import LiveAlerts from './LiveAlerts';
@@ -28,6 +29,7 @@ import SystemHealth from './SystemHealth';
 
 const Dashboard: React.FC = () => {
   const { auth } = useAuth();
+  const { tCards, tCommon } = useTranslation();
   const navigate = useNavigate();
   const userRole = auth.user?.role;
   const [currentView, setCurrentView] = useState<'dashboard' | 'alerts' | 'tourists' | 'zones' | 'efir' | 'analytics' | 'roles' | 'system'>('dashboard');
@@ -43,27 +45,27 @@ const Dashboard: React.FC = () => {
   const getCardsByRole = () => {
     const baseCards = [
       {
-        title: 'Live Alerts',
+        title: tCards('alerts'),
         icon: AlertTriangle,
-        description: 'Real-time incident monitoring',
+        description: tCards('alertsDesc'),
         data: `${dashboardData.alerts.critical} Critical`,
         color: 'text-emergency',
         action: 'View Feed',
         onClick: () => setCurrentView('alerts')
       },
       {
-        title: 'Tourists',
+        title: tCards('tourists'),
         icon: Users,
-        description: 'Active tourist tracking',
+        description: tCards('touristsDesc'),
         data: `${dashboardData.tourists.active}/${dashboardData.tourists.total}`,
         color: 'text-primary',
         action: 'View Map',
         onClick: () => setCurrentView('tourists')
       },
       {
-        title: 'Safety Zones',
+        title: tCards('zones'),
         icon: MapPin,
-        description: 'Zone management & monitoring',
+        description: tCards('zonesDesc'),
         data: `${dashboardData.zones.safe} Safe, ${dashboardData.zones.restricted} Restricted`,
         color: 'text-success',
         action: 'Manage',
@@ -73,9 +75,9 @@ const Dashboard: React.FC = () => {
 
     if (userRole === 'police' || userRole === 'admin') {
       baseCards.push({
-        title: 'E-FIR System',
+        title: tCards('efir'),
         icon: FileText,
-        description: 'Digital FIR management',
+        description: tCards('efirDesc'),
         data: `${dashboardData.efirs.pending} Pending`,
         color: 'text-warning',
         action: 'Process',
@@ -85,9 +87,9 @@ const Dashboard: React.FC = () => {
 
     if (userRole === 'tourism' || userRole === 'admin') {
       baseCards.push({
-        title: 'Analytics',
+        title: tCards('analytics'),
         icon: BarChart3,
-        description: 'Tourism safety analytics',
+        description: tCards('analyticsDesc'),
         data: 'View Reports',
         color: 'text-secondary',
         action: 'Open',
@@ -118,9 +120,9 @@ const Dashboard: React.FC = () => {
           onClick: () => setCurrentView('roles')
         },
         {
-          title: 'System Health',
+          title: tCards('status'),
           icon: Activity,
-          description: 'API & socket monitoring',
+          description: tCards('statusDesc'),
           data: 'All Systems Online',
           color: 'text-success',
           action: 'Monitor',

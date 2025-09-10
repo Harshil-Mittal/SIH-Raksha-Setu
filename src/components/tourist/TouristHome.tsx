@@ -15,11 +15,13 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { blockchainService } from '@/services/blockchainService';
+import { useTranslation } from '@/hooks/useTranslation';
 import MapView from './MapView';
 import TripsView from './TripsView';
 
 const TouristHome: React.FC = () => {
   const { auth, updateProfile } = useAuth();
+  const { tTourist, tCommon, tSOS } = useTranslation();
   const [currentView, setCurrentView] = useState<'home' | 'map' | 'trips'>('home');
   const [isCreatingDigitalID, setIsCreatingDigitalID] = useState(false);
   const safetyScore = 85; // Mock safety score
@@ -38,28 +40,6 @@ const TouristHome: React.FC = () => {
   };
 
   const safetyBadge = getSafetyBadge(safetyScore);
-
-  // Auto-create digital ID for existing users who don't have one
-  useEffect(() => {
-    if (auth.user && !auth.user.digitalId && !isCreatingDigitalID) {
-      // Small delay to let the component render first
-      const timer = setTimeout(() => {
-        handleCreateDigitalID();
-      }, 2000);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [auth.user?.id]); // Only run when user changes
-
-  const handleSOSClick = () => {
-    // In a real app, this would trigger emergency services
-    alert('SOS Alert Sent! Emergency services have been notified.');
-  };
-
-  const handleEmergencyCall = () => {
-    // In a real app, this would initiate a phone call
-    window.open('tel:+911234567890');
-  };
 
   const handleCreateDigitalID = async () => {
     if (!auth.user) return;
@@ -104,6 +84,28 @@ const TouristHome: React.FC = () => {
     }
   };
 
+  const handleSOSClick = () => {
+    // In a real app, this would trigger emergency services
+    alert('SOS Alert Sent! Emergency services have been notified.');
+  };
+
+  const handleEmergencyCall = () => {
+    // In a real app, this would initiate a phone call
+    window.open('tel:+911234567890');
+  };
+
+  // Auto-create digital ID for existing users who don't have one
+  useEffect(() => {
+    if (auth.user && !auth.user.digitalId && !isCreatingDigitalID) {
+      // Small delay to let the component render first
+      const timer = setTimeout(() => {
+        handleCreateDigitalID();
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [auth.user?.id, isCreatingDigitalID]); // Include isCreatingDigitalID in dependencies
+
   if (currentView === 'map') {
     return <MapView onBack={() => setCurrentView('home')} />;
   }
@@ -120,7 +122,7 @@ const TouristHome: React.FC = () => {
           <CardHeader className="pb-3">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-lg font-semibold">Welcome back</h2>
+                <h2 className="text-lg font-semibold">{tTourist('home')}</h2>
                 <p className="text-sm opacity-90">{auth.user?.name}</p>
               </div>
               <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
@@ -132,7 +134,7 @@ const TouristHome: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-2xl font-bold">{safetyScore}%</div>
-                <div className="text-sm opacity-90">Safety Score</div>
+                <div className="text-sm opacity-90">{tTourist('safetyScore')}</div>
               </div>
               <Badge className={`${safetyBadge.color} text-white`}>
                 {safetyBadge.text}
@@ -147,7 +149,7 @@ const TouristHome: React.FC = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2">
               <QrCode className="w-5 h-5" />
-              My Digital ID
+              {tTourist('digitalId')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -183,7 +185,7 @@ const TouristHome: React.FC = () => {
                     size="sm"
                   >
                     <Plus className="w-4 h-4 mr-2" />
-                    {isCreatingDigitalID ? 'Creating...' : 'Create Digital ID'}
+                    {isCreatingDigitalID ? tCommon('loading') : 'Create Digital ID'}
                   </Button>
                   <div className="text-xs text-muted-foreground mt-2">
                     This will generate a blockchain wallet and digital identity
@@ -199,7 +201,7 @@ const TouristHome: React.FC = () => {
           <Card className="cursor-pointer hover:shadow-md transition-shadow" onClick={() => setCurrentView('map')}>
             <CardContent className="p-4 text-center">
               <MapPin className="w-6 h-6 mx-auto mb-2 text-primary" />
-              <div className="text-sm font-medium">Map View</div>
+              <div className="text-sm font-medium">{tTourist('map')}</div>
               <div className="text-xs text-muted-foreground">Safe zones & alerts</div>
             </CardContent>
           </Card>
@@ -207,7 +209,7 @@ const TouristHome: React.FC = () => {
           <Card className="cursor-pointer hover:shadow-md transition-shadow" onClick={() => setCurrentView('trips')}>
             <CardContent className="p-4 text-center">
               <Calendar className="w-6 h-6 mx-auto mb-2 text-primary" />
-              <div className="text-sm font-medium">My Trips</div>
+              <div className="text-sm font-medium">{tTourist('trips')}</div>
               <div className="text-xs text-muted-foreground">Itinerary & warnings</div>
             </CardContent>
           </Card>
@@ -218,7 +220,7 @@ const TouristHome: React.FC = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="w-5 h-5" />
-              Recent Alerts
+              {tTourist('alerts')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -269,7 +271,7 @@ const TouristHome: React.FC = () => {
           onClick={handleSOSClick}
         >
           <div className="text-center">
-            <div className="text-lg font-bold">SOS</div>
+            <div className="text-lg font-bold">{tSOS('button')}</div>
           </div>
         </Button>
       </div>

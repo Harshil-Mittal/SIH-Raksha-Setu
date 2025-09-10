@@ -7,6 +7,7 @@ import { useAuth } from '@/context/AuthContext';
 import { LoginCredentials, DEMO_ACCOUNTS } from '@/types/auth';
 import { Eye, EyeOff, Shield, Users, UserCheck, Settings } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface LoginFormProps {
   onSwitchToSignup: () => void;
@@ -27,6 +28,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup }) => {
   const [showPassword, setShowPassword] = useState(false);
   const { login, auth } = useAuth();
   const { toast } = useToast();
+  const { tAuth, tError, tCommon } = useTranslation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup }) => {
     if (!success) {
       toast({
         variant: "destructive",
-        title: "Login Failed",
+        title: tError('loginFailed'),
         description: "Invalid email or password. Try demo accounts.",
       });
     }
@@ -61,16 +63,16 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup }) => {
         <div className="mx-auto w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center">
           <Shield className="w-6 h-6 text-white" />
         </div>
-        <CardTitle className="text-2xl">Welcome Back</CardTitle>
+        <CardTitle className="text-2xl">{tAuth('welcomeBack')}</CardTitle>
         <CardDescription>
-          Sign in to your RakshaSetu account
+          {tAuth('signInAccount')}
         </CardDescription>
       </CardHeader>
       
       <CardContent className="space-y-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">{tAuth('email')}</Label>
             <Input
               id="email"
               type="email"
@@ -82,7 +84,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup }) => {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">{tAuth('password')}</Label>
             <div className="relative">
               <Input
                 id="password"
@@ -109,7 +111,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup }) => {
             className="w-full bg-gradient-brand hover:opacity-90" 
             disabled={auth.isLoading}
           >
-            {auth.isLoading ? 'Signing In...' : 'Sign In'}
+            {auth.isLoading ? tCommon('loading') : tAuth('login')}
           </Button>
         </form>
         
@@ -144,7 +146,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitchToSignup }) => {
         <div className="text-center text-sm">
           <span className="text-muted-foreground">Don't have an account? </span>
           <Button variant="link" className="p-0 h-auto" onClick={onSwitchToSignup}>
-            Sign up
+            {tAuth('signup')}
           </Button>
         </div>
       </CardContent>
