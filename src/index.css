@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RakshaSetu Design System - All colors, gradients, fonts, etc defined here */
+
+@layer base {
+  :root {
+    /* Brand Colors - RakshaSetu Theme */
+    --raksha-blue: 210 71% 21%; /* Deep blue #0A3D62 for "Raksha" */
+    --setu-orange: 38 100% 64%; /* Light orange #FFA94D for "Setu" */
+    --safety-green: 142 76% 36%; /* Green for safe zones */
+    --warning-amber: 45 93% 58%; /* Amber for warnings */
+    --danger-red: 0 84% 60%; /* Red for alerts/danger */
+    
+    /* Core System Colors */
+    --background: 0 0% 100%;
+    --foreground: 210 71% 21%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 210 71% 21%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 71% 21%;
+    
+    --primary: 210 71% 21%; /* Raksha blue */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 38 100% 64%; /* Setu orange */
+    --secondary-foreground: 210 71% 21%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 38 100% 64%; /* Setu orange */
+    --accent-foreground: 210 71% 21%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 71% 21%;
+    
+    --radius: 0.75rem;
+    
+    /* Status Colors */
+    --success: 142 76% 36%; /* Safety green */
+    --success-foreground: 0 0% 98%;
+    --warning: 45 93% 58%; /* Warning amber */
+    --warning-foreground: 210 71% 21%;
+    --emergency: 0 84% 60%; /* Emergency red */
+    --emergency-foreground: 0 0% 98%;
+    
+    /* Gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(var(--raksha-blue)), hsl(var(--setu-orange)));
+    --gradient-safety: linear-gradient(135deg, hsl(var(--safety-green)), hsl(var(--success)));
+    --gradient-alert: linear-gradient(135deg, hsl(var(--warning-amber)), hsl(var(--danger-red)));
+    
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-elevated: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-brand: 0 10px 30px -10px hsl(var(--raksha-blue) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .dark {
+    --background: 210 71% 8%;
+    --foreground: 0 0% 95%;
+    
+    --card: 210 71% 10%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 210 71% 10%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 38 100% 64%; /* Setu orange for dark mode */
+    --primary-foreground: 210 71% 8%;
+    
+    --secondary: 210 71% 15%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 210 71% 15%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 210 71% 15%;
+    --accent-foreground: 0 0% 95%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 210 71% 15%;
+    --input: 210 71% 15%;
+    --ring: 38 100% 64%;
+    
+    --success: 142 76% 36%;
+    --warning: 45 93% 58%;
+    --emergency: 0 84% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

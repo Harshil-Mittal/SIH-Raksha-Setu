@@ -1,0 +1,181 @@
+{
+  "app": {
+    "title": "RakshaSetu",
+    "tagline": "Kosom bhal thak babe tumi laga digital sathi"
+  },
+  "login": {
+    "title": "Log In",
+    "email": "Email",
+    "password": "Password",
+    "role": "Role",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "selectRole": "Tumi laga role choose koribi",
+    "welcomeBack": "Wapas ahibole bhalkoi",
+    "signInAccount": "Tumi laga RakshaSetu account te sign in koribi"
+  },
+  "signup": {
+    "title": "RakshaSetu te join koribi",
+    "tagline": "Bhalkoi thakibo babe account bonabi",
+    "name": "Pura naam",
+    "namePlaceholder": "Tumi laga pura naam",
+    "email": "Email",
+    "emailPlaceholder": "tumi@email.com",
+    "password": "Password",
+    "confirmPassword": "Password confirm koribi",
+    "role": "User role",
+    "language": "Pasand kora bhasha",
+    "nationality": "Jati",
+    "nationalityPlaceholder": "jineka Indian, American, etc.",
+    "createAccount": "Account bonabi",
+    "creating": "Account bona hoise...",
+    "haveAccount": "Account ase naki?",
+    "success": "Account bonise",
+    "welcome": "RakshaSetu te bhalkoi ahise!",
+    "roles": {
+      "tourist": "Tourist",
+      "touristDesc": "Security information bisara traveler",
+      "police": "Police Officer",
+      "policeDesc": "Police manuh",
+      "tourism": "Tourism Department",
+      "tourismDesc": "Tourism department official",
+      "admin": "System Admin",
+      "adminDesc": "System administrator"
+    },
+    "tourist": {
+      "emergencyContactName": "Emergency contact naam",
+      "emergencyContactNamePlaceholder": "Emergency contact laga pura naam",
+      "emergencyContact": "Emergency contact number",
+      "emergencyContactPlaceholder": "+91 9876543210",
+      "emergencyContactRequired": "Emergency contact details dorkar ase",
+      "aadhaarNumber": "Aadhaar number (Indian khan babe)",
+      "aadhaarPlaceholder": "1234 5678 9012",
+      "passportNumber": "Passport number (bideshi tourist khan babe)",
+      "passportPlaceholder": "A1234567",
+      "expectedStayDuration": "Thakibo laga time",
+      "expectedStayPlaceholder": "jineka 7 din, 2 hapta",
+      "accommodationDetails": "Thakibo laga jagah details",
+      "accommodationPlaceholder": "Hotel naam aru address",
+      "itinerary": "Bera kora program",
+      "itineraryPlaceholder": "Tumi laga plan jagah aru kam khan likhibi..."
+    }
+  },
+  "topbar": {
+    "home": "Ghor",
+    "settings": "Settings",
+    "language": "Bhasha",
+    "dark": "Andhera mode",
+    "logout": "Log out"
+  },
+  "cards": {
+    "alerts": "Live Alerts",
+    "tourists": "Tourists",
+    "zones": "Zones",
+    "efir": "E-FIR",
+    "analytics": "Heatmaps & Analytics",
+    "status": "System Status",
+    "alertsDesc": "Real-time incident monitoring",
+    "touristsDesc": "Active tourist tracking",
+    "zonesDesc": "Zone management & monitoring",
+    "efirDesc": "Digital FIR management",
+    "analyticsDesc": "Tourism safety analytics",
+    "statusDesc": "API & socket monitoring"
+  },
+  "alerts": {
+    "severity": "Severity",
+    "type": "Type",
+    "timestamp": "Time",
+    "view": "Sabi",
+    "critical": "Critical",
+    "moderate": "Moderate",
+    "low": "Low",
+    "panic": "Panic Alert",
+    "geofence": "Geo-fence Breach",
+    "anomaly": "Anomaly Detection",
+    "feed": "Live Alerts Feed",
+    "noAlerts": "Kono active alerts nai"
+  },
+  "tourists": {
+    "title": "Tourist Management",
+    "name": "Naam",
+    "location": "Jagah",
+    "status": "Status",
+    "lastSeen": "Haal te dekha",
+    "viewProfile": "Profile sabi",
+    "digitalId": "Digital ID",
+    "emergencyContact": "Emergency Contact"
+  },
+  "zones": {
+    "title": "Zone Management",
+    "safe": "Safe Zone",
+    "restricted": "Restricted Zone",
+    "draw": "Draw Zone",
+    "save": "Save Zone",
+    "edit": "Edit Zone",
+    "delete": "Delete Zone"
+  },
+  "efir": {
+    "title": "E-FIR Management",
+    "draft": "Draft",
+    "pending": "Pending",
+    "approved": "Approved",
+    "create": "Create FIR",
+    "approve": "Approve",
+    "details": "FIR Details",
+    "incident": "Incident Report"
+  },
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "heatmap": "Heatmap",
+    "daily": "Daily Alerts",
+    "incidents": "Incidents",
+    "response": "Response Time",
+    "export": "Export Data"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "account": "Account",
+    "notifications": "Notifications",
+    "accessibility": "Accessibility",
+    "profile": "Profile",
+    "security": "Security",
+    "preferences": "Preferences"
+  },
+  "tourist": {
+    "home": "Ghor",
+    "safetyScore": "Safety Score",
+    "digitalId": "Moi laga Digital ID",
+    "trips": "Moi laga trips",
+    "sos": "SOS",
+    "map": "Map",
+    "alerts": "Alerts",
+    "profile": "Profile"
+  },
+  "errors": {
+    "required": "Yetu field dorkar ase",
+    "invalidEmail": "Thik email dibi",
+    "passwordMismatch": "Password same nohoi",
+    "loginFailed": "Login fail hoise. Tumi laga details check koribi.",
+    "networkError": "Network problem. Aru try koribi."
+  },
+  "sos": {
+    "confirm": "SOS pathibi naki?",
+    "sent": "SOS pathaise. Authorities ke inform korise.",
+    "button": "Emergency SOS",
+    "calling": "Emergency services ke call korise..."
+  },
+  "common": {
+    "loading": "Load hoise...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Bondh",
+    "back": "Wapas",
+    "next": "Agite",
+    "submit": "Submit",
+    "search": "Bisarib",
+    "filter": "Filter",
+    "export": "Export",
+    "refresh": "Refresh"
+  }
+}

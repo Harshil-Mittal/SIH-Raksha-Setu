@@ -1,0 +1,181 @@
+{
+  "app": {
+    "title": "RakshaSetu",
+    "tagline": "Your digital companion for a safe journey"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "role": "Role",
+    "login": "Login",
+    "signup": "Sign up",
+    "selectRole": "Select your role",
+    "welcomeBack": "Welcome Back",
+    "signInAccount": "Sign in to your RakshaSetu account"
+  },
+  "signup": {
+    "title": "Join RakshaSetu",
+    "tagline": "Create your account for safer journeys",
+    "name": "Full Name",
+    "namePlaceholder": "Your full name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "role": "User Role",
+    "language": "Preferred Language",
+    "nationality": "Nationality",
+    "nationalityPlaceholder": "e.g., Indian, American, etc.",
+    "createAccount": "Create Account",
+    "creating": "Creating Account...",
+    "haveAccount": "Already have an account?",
+    "success": "Account Created",
+    "welcome": "Welcome to RakshaSetu!",
+    "roles": {
+      "tourist": "Tourist",
+      "touristDesc": "Traveler seeking safety information",
+      "police": "Police Officer",
+      "policeDesc": "Law enforcement personnel",
+      "tourism": "Tourism Department",
+      "tourismDesc": "Tourism department official",
+      "admin": "System Admin",
+      "adminDesc": "System administrator"
+    },
+    "tourist": {
+      "emergencyContactName": "Emergency Contact Name",
+      "emergencyContactNamePlaceholder": "Full name of emergency contact",
+      "emergencyContact": "Emergency Contact Number",
+      "emergencyContactPlaceholder": "+91 9876543210",
+      "emergencyContactRequired": "Emergency contact details are required",
+      "aadhaarNumber": "Aadhaar Number (For Indians)",
+      "aadhaarPlaceholder": "1234 5678 9012",
+      "passportNumber": "Passport Number (For Foreign Tourists)",
+      "passportPlaceholder": "A1234567",
+      "expectedStayDuration": "Expected Stay Duration",
+      "expectedStayPlaceholder": "e.g., 7 days, 2 weeks",
+      "accommodationDetails": "Accommodation Details",
+      "accommodationPlaceholder": "Hotel name and address",
+      "itinerary": "Travel Itinerary",
+      "itineraryPlaceholder": "Describe your planned destinations and activities..."
+    }
+  },
+  "topbar": {
+    "home": "Home",
+    "settings": "Settings",
+    "language": "Language",
+    "dark": "Dark mode",
+    "logout": "Logout"
+  },
+  "cards": {
+    "alerts": "Live Alerts",
+    "tourists": "Tourists",
+    "zones": "Zones",
+    "efir": "E-FIR",
+    "analytics": "Heatmaps & Analytics",
+    "status": "System Status",
+    "alertsDesc": "Real-time incident monitoring",
+    "touristsDesc": "Active tourist tracking",
+    "zonesDesc": "Zone management & monitoring",
+    "efirDesc": "Digital FIR management",
+    "analyticsDesc": "Tourism safety analytics",
+    "statusDesc": "API & socket monitoring"
+  },
+  "alerts": {
+    "severity": "Severity",
+    "type": "Type",
+    "timestamp": "Time",
+    "view": "View",
+    "critical": "Critical",
+    "moderate": "Moderate",
+    "low": "Low",
+    "panic": "Panic Alert",
+    "geofence": "Geo-fence Breach",
+    "anomaly": "Anomaly Detection",
+    "feed": "Live Alerts Feed",
+    "noAlerts": "No active alerts"
+  },
+  "tourists": {
+    "title": "Tourist Management",
+    "name": "Name",
+    "location": "Location",
+    "status": "Status",
+    "lastSeen": "Last Seen",
+    "viewProfile": "View Profile",
+    "digitalId": "Digital ID",
+    "emergencyContact": "Emergency Contact"
+  },
+  "zones": {
+    "title": "Zone Management",
+    "safe": "Safe Zone",
+    "restricted": "Restricted Zone",
+    "draw": "Draw Zone",
+    "save": "Save Zone",
+    "edit": "Edit Zone",
+    "delete": "Delete Zone"
+  },
+  "efir": {
+    "title": "E-FIR Management",
+    "draft": "Draft",
+    "pending": "Pending",
+    "approved": "Approved",
+    "create": "Create FIR",
+    "approve": "Approve",
+    "details": "FIR Details",
+    "incident": "Incident Report"
+  },
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "heatmap": "Heatmap",
+    "daily": "Daily Alerts",
+    "incidents": "Incidents",
+    "response": "Response Time",
+    "export": "Export Data"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "account": "Account",
+    "notifications": "Notifications",
+    "accessibility": "Accessibility",
+    "profile": "Profile",
+    "security": "Security",
+    "preferences": "Preferences"
+  },
+  "tourist": {
+    "home": "Home",
+    "safetyScore": "Safety Score",
+    "digitalId": "My Digital ID",
+    "trips": "My Trips",
+    "sos": "SOS",
+    "map": "Map",
+    "alerts": "Alerts",
+    "profile": "Profile"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Enter a valid email",
+    "passwordMismatch": "Passwords do not match",
+    "loginFailed": "Login failed. Please check your credentials.",
+    "networkError": "Network error. Please try again."
+  },
+  "sos": {
+    "confirm": "Send SOS?",
+    "sent": "SOS sent. Authorities notified.",
+    "button": "Emergency SOS",
+    "calling": "Calling emergency services..."
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "refresh": "Refresh"
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "app": {
+    "title": "RakshaSetu",
+    "tagline": "Ka jingim thymai ba bymjah ïa ka digital companion"
+  },
+  "login": {
+    "title": "Log In",
+    "email": "Email",
+    "password": "Password",
+    "role": "Role",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "selectRole": "Khmat phi ka role",
+    "welcomeBack": "Kumno la shong",
+    "signInAccount": "Sign in ha ka RakshaSetu account"
+  },
+  "signup": {
+    "title": "RakshaSetu ha join khlem",
+    "tagline": "Bymjah ïa thma babe ka account stem",
+    "name": "Ka kylla kymmih",
+    "namePlaceholder": "Phi ka kylla kymmih",
+    "email": "Email",
+    "emailPlaceholder": "phi@email.com",
+    "password": "Password",
+    "confirmPassword": "Shong confirm ka password",
+    "role": "Ka role",
+    "language": "Ka ktien ba ieit",
+    "nationality": "Ka jaitbynta",
+    "nationalityPlaceholder": "jingnang Indian, American, etc.",
+    "createAccount": "Stem ka account",
+    "creating": "Stem sha ka account...",
+    "haveAccount": "Ïa phi ka account ha?",
+    "success": "Account stem la",
+    "welcome": "Kumno la shong RakshaSetu ha!",
+    "roles": {
+      "tourist": "Tourist",
+      "touristDesc": "Byngkuid ba jinglong security information",
+      "police": "Police Officer",
+      "policeDesc": "Police manuh",
+      "tourism": "Tourism Department",
+      "tourismDesc": "Tourism department official",
+      "admin": "System Admin",
+      "adminDesc": "System administrator"
+    },
+    "tourist": {
+      "emergencyContactName": "Emergency contact kymmih",
+      "emergencyContactNamePlaceholder": "Emergency contact ka kylla kymmih",
+      "emergencyContact": "Emergency contact number",
+      "emergencyContactPlaceholder": "+91 9876543210",
+      "emergencyContactRequired": "Emergency contact details marai",
+      "aadhaarNumber": "Aadhaar number (Indian ki)",
+      "aadhaarPlaceholder": "1234 5678 9012",
+      "passportNumber": "Passport number (bideshi tourist ki)",
+      "passportPlaceholder": "A1234567",
+      "expectedStayDuration": "Jingkynmaw thak ka wei",
+      "expectedStayPlaceholder": "jingnang 7 sni, 2 hapta",
+      "accommodationDetails": "Thak ka jagah details",
+      "accommodationPlaceholder": "Hotel kymmih bad address",
+      "itinerary": "Byngkuid program",
+      "itineraryPlaceholder": "Phi ka plan jagah bad kam da jingpyrkhat..."
+    }
+  },
+  "topbar": {
+    "home": "Jïng",
+    "settings": "Settings",
+    "language": "Ktien",
+    "dark": "Dark mode",
+    "logout": "Log out"
+  },
+  "cards": {
+    "alerts": "Live Alerts",
+    "tourists": "Tourists",
+    "zones": "Zones",
+    "efir": "E-FIR",
+    "analytics": "Heatmaps & Analytics",
+    "status": "System Status",
+    "alertsDesc": "Real-time incident monitoring",
+    "touristsDesc": "Active tourist tracking",
+    "zonesDesc": "Zone management & monitoring",
+    "efirDesc": "Digital FIR management",
+    "analyticsDesc": "Tourism safety analytics",
+    "statusDesc": "API & socket monitoring"
+  },
+  "alerts": {
+    "severity": "Severity",
+    "type": "Type",
+    "timestamp": "Time",
+    "view": "Jingeit",
+    "critical": "Critical",
+    "moderate": "Moderate",
+    "low": "Low",
+    "panic": "Panic Alert",
+    "geofence": "Geo-fence Breach",
+    "anomaly": "Anomaly Detection",
+    "feed": "Live Alerts Feed",
+    "noAlerts": "Ïam ban active alerts"
+  },
+  "tourists": {
+    "title": "Tourist Management",
+    "name": "Kymmih",
+    "location": "Jingjïng",
+    "status": "Status",
+    "lastSeen": "La jingeit kyrta",
+    "viewProfile": "Jingeit ka profile",
+    "digitalId": "Digital ID",
+    "emergencyContact": "Emergency Contact"
+  },
+  "zones": {
+    "title": "Zone Management",
+    "safe": "Safe Zone",
+    "restricted": "Restricted Zone",
+    "draw": "Draw Zone",
+    "save": "Save Zone",
+    "edit": "Edit Zone",
+    "delete": "Delete Zone"
+  },
+  "efir": {
+    "title": "E-FIR Management",
+    "draft": "Draft",
+    "pending": "Pending",
+    "approved": "Approved",
+    "create": "Create FIR",
+    "approve": "Approve",
+    "details": "FIR Details",
+    "incident": "Incident Report"
+  },
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "heatmap": "Heatmap",
+    "daily": "Daily Alerts",
+    "incidents": "Incidents",
+    "response": "Response Time",
+    "export": "Export Data"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "account": "Account",
+    "notifications": "Notifications",
+    "accessibility": "Accessibility",
+    "profile": "Profile",
+    "security": "Security",
+    "preferences": "Preferences"
+  },
+  "tourist": {
+    "home": "Jïng",
+    "safetyScore": "Safety Score",
+    "digitalId": "Nga ka Digital ID",
+    "trips": "Nga ka trips",
+    "sos": "SOS",
+    "map": "Map",
+    "alerts": "Alerts",
+    "profile": "Profile"
+  },
+  "errors": {
+    "required": "Na field na ai marai",
+    "invalidEmail": "Lut ka valid email",
+    "passwordMismatch": "Ka passwords ïam ban match",
+    "loginFailed": "Login ha fail. Check phi ka credentials.",
+    "networkError": "Network error. Try shong."
+  },
+  "sos": {
+    "confirm": "Kular SOS?",
+    "sent": "SOS kular la. Authorities da inform la.",
+    "button": "Emergency SOS",
+    "calling": "Kall emergency services..."
+  },
+  "common": {
+    "loading": "Load sha...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Kylla",
+    "back": "Wah",
+    "next": "Ïong",
+    "submit": "Submit",
+    "search": "Mih",
+    "filter": "Filter",
+    "export": "Export",
+    "refresh": "Refresh"
+  }
+}

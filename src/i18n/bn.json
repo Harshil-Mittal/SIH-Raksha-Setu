@@ -1,0 +1,181 @@
+{
+  "app": {
+    "title": "রক্ষাসেতু",
+    "tagline": "নিরাপদ যাত্রার জন্য আপনার ডিজিটাল সহযোগী"
+  },
+  "login": {
+    "title": "লগ ইন",
+    "email": "ইমেইল",
+    "password": "পাসওয়ার্ড",
+    "role": "ভূমিকা",
+    "login": "লগ ইন",
+    "signup": "সাইন আপ",
+    "selectRole": "আপনার ভূমিকা নির্বাচন করুন",
+    "welcomeBack": "পুনরায় স্বাগতম",
+    "signInAccount": "আপনার রক্ষাসেতু অ্যাকাউন্টে সাইন ইন করুন"
+  },
+  "signup": {
+    "title": "রক্ষাসেতুতে যোগ দিন",
+    "tagline": "নিরাপদ যাত্রার জন্য আপনার অ্যাকাউন্ট তৈরি করুন",
+    "name": "সম্পূর্ণ নাম",
+    "namePlaceholder": "আপনার সম্পূর্ণ নাম",
+    "email": "ইমেইল",
+    "emailPlaceholder": "আপনার@ইমেইল.com",
+    "password": "পাসওয়ার্ড",
+    "confirmPassword": "পাসওয়ার্ড নিশ্চিত করুন",
+    "role": "ব্যবহারকারীর ভূমিকা",
+    "language": "পছন্দের ভাষা",
+    "nationality": "জাতীয়তা",
+    "nationalityPlaceholder": "যেমন ভারতীয়, আমেরিকান, ইত্যাদি",
+    "createAccount": "অ্যাকাউন্ট তৈরি করুন",
+    "creating": "অ্যাকাউন্ট তৈরি করা হচ্ছে...",
+    "haveAccount": "ইতিমধ্যে অ্যাকাউন্ট আছে?",
+    "success": "অ্যাকাউন্ট তৈরি হয়েছে",
+    "welcome": "রক্ষাসেতুতে আপনাকে স্বাগতম!",
+    "roles": {
+      "tourist": "পর্যটক",
+      "touristDesc": "নিরাপত্তা তথ্য খোঁজা ভ্রমণকারী",
+      "police": "পুলিশ অফিসার",
+      "policeDesc": "আইন প্রয়োগকারী কর্মী",
+      "tourism": "পর্যটন বিভাগ",
+      "tourismDesc": "পর্যটন বিভাগের কর্মকর্তা",
+      "admin": "সিস্টেম অ্যাডমিন",
+      "adminDesc": "সিস্টেম প্রশাসক"
+    },
+    "tourist": {
+      "emergencyContactName": "জরুরি যোগাযোগের নাম",
+      "emergencyContactNamePlaceholder": "জরুরি যোগাযোগের সম্পূর্ণ নাম",
+      "emergencyContact": "জরুরি যোগাযোগ নম্বর",
+      "emergencyContactPlaceholder": "+91 9876543210",
+      "emergencyContactRequired": "জরুরি যোগাযোগের বিবরণ প্রয়োজনীয়",
+      "aadhaarNumber": "আধার নম্বর (ভারতীয়দের জন্য)",
+      "aadhaarPlaceholder": "1234 5678 9012",
+      "passportNumber": "পাসপোর্ট নম্বর (বিদেশি পর্যটকদের জন্য)",
+      "passportPlaceholder": "A1234567",
+      "expectedStayDuration": "প্রত্যাশিত থাকার সময়",
+      "expectedStayPlaceholder": "যেমন ৭ দিন, ২ সপ্তাহ",
+      "accommodationDetails": "থাকার ব্যবস্থার বিবরণ",
+      "accommodationPlaceholder": "হোটেলের নাম এবং ঠিকানা",
+      "itinerary": "ভ্রমণ পরিকল্পনা",
+      "itineraryPlaceholder": "আপনার পরিকল্পিত গন্তব্য এবং কার্যক্রমের বর্ণনা দিন..."
+    }
+  },
+  "topbar": {
+    "home": "হোম",
+    "settings": "সেটিংস",
+    "language": "ভাষা",
+    "dark": "ডার্ক মোড",
+    "logout": "লগ আউট"
+  },
+  "cards": {
+    "alerts": "লাইভ অ্যালার্ট",
+    "tourists": "পর্যটক",
+    "zones": "অঞ্চল",
+    "efir": "ই-এফআইআর",
+    "analytics": "হিটম্যাপ এবং অ্যানালিটিক্স",
+    "status": "সিস্টেম অবস্থা",
+    "alertsDesc": "রিয়েল-টাইম ঘটনা নিরীক্ষণ",
+    "touristsDesc": "সক্রিয় পর্যটক ট্র্যাকিং",
+    "zonesDesc": "অঞ্চল ব্যবস্থাপনা এবং নিরীক্ষণ",
+    "efirDesc": "ডিজিটাল এফআইআর ব্যবস্থাপনা",
+    "analyticsDesc": "পর্যটন নিরাপত্তা অ্যানালিটিক্স",
+    "statusDesc": "এপিআই এবং সকেট নিরীক্ষণ"
+  },
+  "alerts": {
+    "severity": "গুরুত্ব",
+    "type": "ধরন",
+    "timestamp": "সময়",
+    "view": "দেখুন",
+    "critical": "গুরুতর",
+    "moderate": "মধ্যম",
+    "low": "কম",
+    "panic": "প্যানিক অ্যালার্ট",
+    "geofence": "জিও-ফেন্স লঙ্ঘন",
+    "anomaly": "অস্বাভাবিকতা সনাক্তকরণ",
+    "feed": "লাইভ অ্যালার্ট ফিড",
+    "noAlerts": "কোনো সক্রিয় অ্যালার্ট নেই"
+  },
+  "tourists": {
+    "title": "পর্যটক ব্যবস্থাপনা",
+    "name": "নাম",
+    "location": "অবস্থান",
+    "status": "অবস্থা",
+    "lastSeen": "শেষ দেখা",
+    "viewProfile": "প্রোফাইল দেখুন",
+    "digitalId": "ডিজিটাল আইডি",
+    "emergencyContact": "জরুরি যোগাযোগ"
+  },
+  "zones": {
+    "title": "অঞ্চল ব্যবস্থাপনা",
+    "safe": "নিরাপদ অঞ্চল",
+    "restricted": "নিষিদ্ধ অঞ্চল",
+    "draw": "অঞ্চল আঁকুন",
+    "save": "অঞ্চল সংরক্ষণ করুন",
+    "edit": "অঞ্চল সম্পাদনা করুন",
+    "delete": "অঞ্চল মুছুন"
+  },
+  "efir": {
+    "title": "ই-এফআইআর ব্যবস্থাপনা",
+    "draft": "খসড়া",
+    "pending": "অপেক্ষমাণ",
+    "approved": "অনুমোদিত",
+    "create": "এফআইআর তৈরি করুন",
+    "approve": "অনুমোদন করুন",
+    "details": "এফআইআর বিবরণ",
+    "incident": "ঘটনার রিপোর্ট"
+  },
+  "analytics": {
+    "title": "অ্যানালিটিক্স ড্যাশবোর্ড",
+    "heatmap": "হিটম্যাপ",
+    "daily": "দৈনিক অ্যালার্ট",
+    "incidents": "ঘটনাসমূহ",
+    "response": "প্রতিক্রিয়ার সময়",
+    "export": "ডেটা রপ্তানি"
+  },
+  "settings": {
+    "title": "সেটিংস",
+    "general": "সাধারণ",
+    "account": "অ্যাকাউন্ট",
+    "notifications": "বিজ্ঞপ্তি",
+    "accessibility": "অ্যাক্সেসিবিলিটি",
+    "profile": "প্রোফাইল",
+    "security": "নিরাপত্তা",
+    "preferences": "পছন্দসমূহ"
+  },
+  "tourist": {
+    "home": "হোম",
+    "safetyScore": "নিরাপত্তা স্কোর",
+    "digitalId": "আমার ডিজিটাল আইডি",
+    "trips": "আমার ভ্রমণ",
+    "sos": "এসওএস",
+    "map": "মানচিত্র",
+    "alerts": "অ্যালার্ট",
+    "profile": "প্রোফাইল"
+  },
+  "errors": {
+    "required": "এই ক্ষেত্রটি প্রয়োজনীয়",
+    "invalidEmail": "একটি বৈধ ইমেইল প্রবেশ করুন",
+    "passwordMismatch": "পাসওয়ার্ড মিলছে না",
+    "loginFailed": "লগইন ব্যর্থ। আপনার তথ্য পরীক্ষা করুন।",
+    "networkError": "নেটওয়ার্ক ত্রুটি। আবার চেষ্টা করুন।"
+  },
+  "sos": {
+    "confirm": "এসওএস পাঠাবেন?",
+    "sent": "এসওএস পাঠানো হয়েছে। কর্তৃপক্ষকে জানানো হয়েছে।",
+    "button": "জরুরি এসওএস",
+    "calling": "জরুরি সেবায় কল করা হচ্ছে..."
+  },
+  "common": {
+    "loading": "লোড হচ্ছে...",
+    "save": "সংরক্ষণ করুন",
+    "cancel": "বাতিল করুন",
+    "close": "বন্ধ করুন",
+    "back": "পিছনে",
+    "next": "পরবর্তী",
+    "submit": "জমা দিন",
+    "search": "অনুসন্ধান করুন",
+    "filter": "ফিল্টার",
+    "export": "রপ্তানি",
+    "refresh": "রিফ্রেশ"
+  }
+}

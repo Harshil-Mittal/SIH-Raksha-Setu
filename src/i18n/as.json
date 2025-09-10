@@ -1,0 +1,181 @@
+{
+  "app": {
+    "title": "ৰক্ষাসেতু",
+    "tagline": "নিৰাপদ যাত্ৰাৰ বাবে আপোনাৰ ডিজিটেল সহযোগী"
+  },
+  "login": {
+    "title": "লগ ইন",
+    "email": "ইমেইল",
+    "password": "পাছৱৰ্ড",
+    "role": "ভূমিকা",
+    "login": "লগ ইন",
+    "signup": "চাইন আপ",
+    "selectRole": "আপোনাৰ ভূমিকা বাছক",
+    "welcomeBack": "পুনৰ স্বাগতম",
+    "signInAccount": "আপোনাৰ ৰক্ষাসেতু একাউণ্টত চাইন ইন কৰক"
+  },
+  "signup": {
+    "title": "ৰক্ষাসেতুত যোগদান কৰক",
+    "tagline": "নিৰাপদ যাত্ৰাৰ বাবে আপোনাৰ একাউণ্ট সৃষ্টি কৰক",
+    "name": "সম্পূৰ্ণ নাম",
+    "namePlaceholder": "আপোনাৰ সম্পূৰ্ণ নাম",
+    "email": "ইমেইল",
+    "emailPlaceholder": "আপোনাৰ@ইমেইল.com",
+    "password": "পাছৱৰ্ড",
+    "confirmPassword": "পাছৱৰ্ড নিশ্চিত কৰক",
+    "role": "ব্যৱহাৰকাৰীৰ ভূমিকা",
+    "language": "পছন্দৰ ভাষা",
+    "nationality": "জাতীয়তা",
+    "nationalityPlaceholder": "যেনে ভাৰতীয়, আমেৰিকান, আদি",
+    "createAccount": "একাউণ্ট সৃষ্টি কৰক",
+    "creating": "একাউণ্ট সৃষ্টি কৰি আছে...",
+    "haveAccount": "ইতিমধ্যে একাউণ্ট আছে?",
+    "success": "একাউণ্ট সৃষ্টি হ'ল",
+    "welcome": "ৰক্ষাসেতুলৈ আপোনাক স্বাগতম!",
+    "roles": {
+      "tourist": "পৰ্যটক",
+      "touristDesc": "সুৰক্ষা তথ্য বিচৰা যাত্ৰী",
+      "police": "আৰক্ষী বিষয়া",
+      "policeDesc": "আইন প্ৰয়োগকাৰী কৰ্মী",
+      "tourism": "পৰ্যটন বিভাগ",
+      "tourismDesc": "পৰ্যটন বিভাগৰ বিষয়া",
+      "admin": "চিষ্টেম এডমিন",
+      "adminDesc": "চিষ্টেম প্ৰশাসক"
+    },
+    "tourist": {
+      "emergencyContactName": "জৰুৰীকালীন যোগাযোগৰ নাম",
+      "emergencyContactNamePlaceholder": "জৰুৰীকালীন যোগাযোগৰ সম্পূৰ্ণ নাম",
+      "emergencyContact": "জৰুৰীকালীন যোগাযোগ নম্বৰ",
+      "emergencyContactPlaceholder": "+91 9876543210",
+      "emergencyContactRequired": "জৰুৰীকালীন যোগাযোগৰ বিৱৰণ প্ৰয়োজনীয়",
+      "aadhaarNumber": "আধাৰ নম্বৰ (ভাৰতীয়সকলৰ বাবে)",
+      "aadhaarPlaceholder": "1234 5678 9012",
+      "passportNumber": "পাছপ'ৰ্ট নম্বৰ (বিদেশী পৰ্যটকৰ বাবে)",
+      "passportPlaceholder": "A1234567",
+      "expectedStayDuration": "প্ৰত্যাশিত থকাৰ সময়",
+      "expectedStayPlaceholder": "যেনে ৭ দিন, ২ সপ্তাহ",
+      "accommodationDetails": "থকাৰ ব্যৱস্থাৰ বিৱৰণ",
+      "accommodationPlaceholder": "হোটেলৰ নাম আৰু ঠিকনা",
+      "itinerary": "যাত্ৰা কাৰ্যসূচী",
+      "itineraryPlaceholder": "আপোনাৰ পৰিকল্পিত গন্তব্য আৰু কাৰ্যকলাপৰ বৰ্ণনা দিয়ক..."
+    }
+  },
+  "topbar": {
+    "home": "হোম",
+    "settings": "ছেটিংছ",
+    "language": "ভাষা",
+    "dark": "ডাৰ্ক মোড",
+    "logout": "লগ আউট"
+  },
+  "cards": {
+    "alerts": "লাইভ এলাৰ্ট",
+    "tourists": "পৰ্যটক",
+    "zones": "অঞ্চল",
+    "efir": "ই-এফআইআৰ",
+    "analytics": "হিটমেপ আৰু এনালিটিক্স",
+    "status": "ছিষ্টেম অৱস্থা",
+    "alertsDesc": "ৰিয়েল-টাইম ঘটনা নিৰীক্ষণ",
+    "touristsDesc": "সক্ৰিয় পৰ্যটক ট্ৰেকিং",
+    "zonesDesc": "অঞ্চল ব্যৱস্থাপনা আৰু নিৰীক্ষণ",
+    "efirDesc": "ডিজিটেল এফআইআৰ ব্যৱস্থাপনা",
+    "analyticsDesc": "পৰ্যটন সুৰক্ষা এনালিটিক্স",
+    "statusDesc": "এপিআই আৰু ছকেট নিৰীক্ষণ"
+  },
+  "alerts": {
+    "severity": "গুৰুত্ব",
+    "type": "প্ৰকাৰ",
+    "timestamp": "সময়",
+    "view": "চাওক",
+    "critical": "গুৰুতৰ",
+    "moderate": "মধ্যম",
+    "low": "কম",
+    "panic": "পেনিক এলাৰ্ট",
+    "geofence": "জিঅ'-ফেন্স উলংঘন",
+    "anomaly": "অস্বাভাৱিকতা ধৰা",
+    "feed": "লাইভ এলাৰ্ট ফিড",
+    "noAlerts": "কোনো সক্ৰিয় এলাৰ্ট নাই"
+  },
+  "tourists": {
+    "title": "পৰ্যটক ব্যৱস্থাপনা",
+    "name": "নাম",
+    "location": "স্থান",
+    "status": "অৱস্থা",
+    "lastSeen": "শেষবাৰ দেখা",
+    "viewProfile": "প্ৰফাইল চাওক",
+    "digitalId": "ডিজিটেল আইডি",
+    "emergencyContact": "জৰুৰীকালীন যোগাযোগ"
+  },
+  "zones": {
+    "title": "অঞ্চল ব্যৱস্থাপনা",
+    "safe": "নিৰাপদ অঞ্চল",
+    "restricted": "নিষিদ্ধ অঞ্চল",
+    "draw": "অঞ্চল আঁকক",
+    "save": "অঞ্চল সংৰক্ষণ কৰক",
+    "edit": "অঞ্চল সম্পাদনা কৰক",
+    "delete": "অঞ্চল মচক"
+  },
+  "efir": {
+    "title": "ই-এফআইআৰ ব্যৱস্থাপনা",
+    "draft": "খচৰা",
+    "pending": "বিচাৰাধীন",
+    "approved": "অনুমোদিত",
+    "create": "এফআইআৰ সৃষ্টি কৰক",
+    "approve": "অনুমোদন কৰক",
+    "details": "এফআইআৰ বিৱৰণ",
+    "incident": "ঘটনাৰ প্ৰতিবেদন"
+  },
+  "analytics": {
+    "title": "এনালিটিক্স ডেছবোৰ্ড",
+    "heatmap": "হিটমেপ",
+    "daily": "দৈনিক এলাৰ্ট",
+    "incidents": "ঘটনাসমূহ",
+    "response": "প্ৰতিক্ৰিয়াৰ সময়",
+    "export": "ডেটা ৰপ্তানি"
+  },
+  "settings": {
+    "title": "ছেটিংছ",
+    "general": "সাধাৰণ",
+    "account": "একাউণ্ট",
+    "notifications": "জাননী",
+    "accessibility": "সুবিধা",
+    "profile": "প্ৰফাইল",
+    "security": "সুৰক্ষা",
+    "preferences": "পছন্দ"
+  },
+  "tourist": {
+    "home": "হোম",
+    "safetyScore": "সুৰক্ষা স্কোৰ",
+    "digitalId": "মোৰ ডিজিটেল আইডি",
+    "trips": "মোৰ যাত্ৰা",
+    "sos": "এছঅ'এছ",
+    "map": "মানচিত্ৰ",
+    "alerts": "এলাৰ্ট",
+    "profile": "প্ৰফাইল"
+  },
+  "errors": {
+    "required": "এই ক্ষেত্ৰটো প্ৰয়োজনীয়",
+    "invalidEmail": "এটা বৈধ ইমেইল দিয়ক",
+    "passwordMismatch": "পাছৱৰ্ড মিলা নাই",
+    "loginFailed": "লগইন ব্যৰ্থ। আপোনাৰ তথ্য পৰীক্ষা কৰক।",
+    "networkError": "নেটৱৰ্ক ত্ৰুটি। পুনৰ চেষ্টা কৰক।"
+  },
+  "sos": {
+    "confirm": "এছঅ'এছ পঠিয়াব?",
+    "sent": "এছঅ'এছ পঠোৱা হ'ল। কৰ্তৃপক্ষক জাননী দিয়া হ'ল।",
+    "button": "জৰুৰীকালীন এছঅ'এছ",
+    "calling": "জৰুৰীকালীন সেৱাক কল কৰি আছে..."
+  },
+  "common": {
+    "loading": "লোড হৈ আছে...",
+    "save": "সংৰক্ষণ কৰক",
+    "cancel": "বাতিল কৰক",
+    "close": "বন্ধ কৰক",
+    "back": "পিছলৈ",
+    "next": "পৰৱৰ্তী",
+    "submit": "দাখিল কৰক",
+    "search": "সন্ধান কৰক",
+    "filter": "ফিল্টাৰ",
+    "export": "ৰপ্তানি",
+    "refresh": "ৰিফ্ৰেছ"
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "app": {
+    "title": "रक्षासेतु",
+    "tagline": "सुरक्षित यात्रा के लिए आपका डिजिटल साथी"
+  },
+  "login": {
+    "title": "लॉग इन",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "role": "भूमिका",
+    "login": "लॉग इन",
+    "signup": "साइन अप",
+    "selectRole": "अपनी भूमिका चुनें",
+    "welcomeBack": "वापस स्वागत है",
+    "signInAccount": "अपने रक्षासेतु खाते में साइन इन करें"
+  },
+  "signup": {
+    "title": "रक्षासेतु में शामिल हों",
+    "tagline": "सुरक्षित यात्रा के लिए अपना खाता बनाएं",
+    "name": "पूरा नाम",
+    "namePlaceholder": "आपका पूरा नाम",
+    "email": "ईमेल",
+    "emailPlaceholder": "आपकी@ईमेल.com",
+    "password": "पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "role": "उपयोगकर्ता भूमिका",
+    "language": "पसंदीदा भाषा",
+    "nationality": "राष्ट्रीयता",
+    "nationalityPlaceholder": "जैसे भारतीय, अमेरिकी, आदि",
+    "createAccount": "खाता बनाएं",
+    "creating": "खाता बनाया जा रहा है...",
+    "haveAccount": "पहले से ही खाता है?",
+    "success": "खाता बन गया",
+    "welcome": "रक्षासेतु में आपका स्वागत है!",
+    "roles": {
+      "tourist": "पर्यटक",
+      "touristDesc": "सुरक्षा जानकारी चाहने वाला यात्री",
+      "police": "पुलिस अधिकारी",
+      "policeDesc": "कानून प्रवर्तन कर्मी",
+      "tourism": "पर्यटन विभाग",
+      "tourismDesc": "पर्यटन विभाग अधिकारी",
+      "admin": "सिस्टम एडमिन",
+      "adminDesc": "सिस्टम प्रशासक"
+    },
+    "tourist": {
+      "emergencyContactName": "आपातकालीन संपर्क का नाम",
+      "emergencyContactNamePlaceholder": "आपातकालीन संपर्क का पूरा नाम",
+      "emergencyContact": "आपातकालीन संपर्क नंबर",
+      "emergencyContactPlaceholder": "+91 9876543210",
+      "emergencyContactRequired": "आपातकालीन संपर्क विवरण आवश्यक है",
+      "aadhaarNumber": "आधार नंबर (भारतीयों के लिए)",
+      "aadhaarPlaceholder": "1234 5678 9012",
+      "passportNumber": "पासपोर्ट नंबर (विदेशी पर्यटकों के लिए)",
+      "passportPlaceholder": "A1234567",
+      "expectedStayDuration": "अपेक्षित ठहरने की अवधि",
+      "expectedStayPlaceholder": "जैसे 7 दिन, 2 सप्ताह",
+      "accommodationDetails": "आवास विवरण",
+      "accommodationPlaceholder": "होटल का नाम और पता",
+      "itinerary": "यात्रा कार्यक्रम",
+      "itineraryPlaceholder": "अपने नियोजित गंतव्यों और गतिविधियों का वर्णन करें..."
+    }
+  },
+  "topbar": {
+    "home": "होम",
+    "settings": "सेटिंग्स",
+    "language": "भाषा",
+    "dark": "डार्क मोड",
+    "logout": "लॉग आउट"
+  },
+  "cards": {
+    "alerts": "लाइव अलर्ट",
+    "tourists": "पर्यटक",
+    "zones": "क्षेत्र",
+    "efir": "ई-एफआईआर",
+    "analytics": "हीटमैप और एनालिटिक्स",
+    "status": "सिस्टम स्थिति",
+    "alertsDesc": "रियल-टाइम घटना निगरानी",
+    "touristsDesc": "सक्रिय पर्यटक ट्रैकिंग",
+    "zonesDesc": "क्षेत्र प्रबंधन और निगरानी",
+    "efirDesc": "डिजिटल एफआईआर प्रबंधन",
+    "analyticsDesc": "पर्यटन सुरक्षा एनालिटिक्स",
+    "statusDesc": "एपीआई और सॉकेट निगरानी"
+  },
+  "alerts": {
+    "severity": "गंभीरता",
+    "type": "प्रकार",
+    "timestamp": "समय",
+    "view": "देखें",
+    "critical": "गंभीर",
+    "moderate": "मध्यम",
+    "low": "कम",
+    "panic": "पैनिक अलर्ट",
+    "geofence": "जियो-फेंस उल्लंघन",
+    "anomaly": "विसंगति का पता लगाना",
+    "feed": "लाइव अलर्ट फीड",
+    "noAlerts": "कोई सक्रिय अलर्ट नहीं"
+  },
+  "tourists": {
+    "title": "पर्यटक प्रबंधन",
+    "name": "नाम",
+    "location": "स्थान",
+    "status": "स्थिति",
+    "lastSeen": "अंतिम बार देखा गया",
+    "viewProfile": "प्रोफ़ाइल देखें",
+    "digitalId": "डिजिटल आईडी",
+    "emergencyContact": "आपातकालीन संपर्क"
+  },
+  "zones": {
+    "title": "क्षेत्र प्रबंधन",
+    "safe": "सुरक्षित क्षेत्र",
+    "restricted": "प्रतिबंधित क्षेत्र",
+    "draw": "क्षेत्र बनाएं",
+    "save": "क्षेत्र सहेजें",
+    "edit": "क्षेत्र संपादित करें",
+    "delete": "क्षेत्र हटाएं"
+  },
+  "efir": {
+    "title": "ई-एफआईआर प्रबंधन",
+    "draft": "मसौदा",
+    "pending": "लंबित",
+    "approved": "अनुमोदित",
+    "create": "एफआईआर बनाएं",
+    "approve": "अनुमोदन करें",
+    "details": "एफआईआर विवरण",
+    "incident": "घटना रिपोर्ट"
+  },
+  "analytics": {
+    "title": "एनालिटिक्स डैशबोर्ड",
+    "heatmap": "हीटमैप",
+    "daily": "दैनिक अलर्ट",
+    "incidents": "घटनाएं",
+    "response": "प्रतिक्रिया समय",
+    "export": "डेटा निर्यात"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "general": "सामान्य",
+    "account": "खाता",
+    "notifications": "सूचनाएं",
+    "accessibility": "पहुंच",
+    "profile": "प्रोफ़ाइल",
+    "security": "सुरक्षा",
+    "preferences": "प्राथमिकताएं"
+  },
+  "tourist": {
+    "home": "होम",
+    "safetyScore": "सुरक्षा स्कोर",
+    "digitalId": "मेरी डिजिटल आईडी",
+    "trips": "मेरी यात्राएं",
+    "sos": "एसओएस",
+    "map": "मानचित्र",
+    "alerts": "अलर्ट",
+    "profile": "प्रोफ़ाइल"
+  },
+  "errors": {
+    "required": "यह फ़ील्ड आवश्यक है",
+    "invalidEmail": "एक वैध ईमेल दर्ज करें",
+    "passwordMismatch": "पासवर्ड मेल नहीं खाते",
+    "loginFailed": "लॉगिन असफल। कृपया अपनी जानकारी जांचें।",
+    "networkError": "नेटवर्क त्रुटि। कृपया पुनः प्रयास करें।"
+  },
+  "sos": {
+    "confirm": "एसओएस भेजें?",
+    "sent": "एसओएस भेजा गया। अधिकारियों को सूचित किया गया।",
+    "button": "आपातकालीन एसओएस",
+    "calling": "आपातकालीन सेवाओं को कॉल कर रहे हैं..."
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "close": "बंद करें",
+    "back": "वापस",
+    "next": "अगला",
+    "submit": "सबमिट करें",
+    "search": "खोजें",
+    "filter": "फ़िल्टर",
+    "export": "निर्यात",
+    "refresh": "रीफ्रेश"
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "app": {
+    "title": "ꯔꯛꯁꯥꯁꯦꯇꯨ",
+    "tagline": "ꯑꯔꯥꯅꯕꯥ ꯈꯣꯉꯆꯠꯀꯤ ꯗꯤꯖꯤꯇꯦꯜ ꯃꯔꯨꯞ"
+  },
+  "login": {
+    "title": "ꯂꯣꯒ ꯏꯟ",
+    "email": "ꯏꯃꯦꯏꯜ",
+    "password": "ꯄꯥꯁꯋꯥꯔꯗ",
+    "role": "ꯊꯧꯗꯥꯡ",
+    "login": "ꯂꯣꯒ ꯏꯟ",
+    "signup": "ꯁꯥꯏꯟ ꯑꯞ",
+    "selectRole": "ꯅꯍꯥꯛꯀꯤ ꯊꯧꯗꯥꯡ ꯈꯅꯕꯤꯌꯨ",
+    "welcomeBack": "ꯑꯃꯨꯛ ꯍꯅꯥ ꯇꯔꯥꯝꯅꯥ ꯂꯥꯛꯄꯥ",
+    "signInAccount": "ꯅꯍꯥꯛꯀꯤ ꯔꯛꯁꯥꯁꯦꯇꯨ ꯑꯦꯀꯥꯎꯟꯇꯇꯥ ꯁꯥꯏꯟ ꯏꯟ ꯇꯧꯕꯤꯌꯨ"
+  },
+  "signup": {
+    "title": "ꯔꯛꯁꯥꯁꯦꯇꯨꯗꯥ ꯌꯥꯑꯣꯔꯀꯨ",
+    "tagline": "ꯑꯔꯥꯅꯕꯥ ꯈꯣꯉꯆꯠꯀꯤ ꯗꯃꯛ ꯅꯍꯥꯛꯀꯤ ꯑꯦꯀꯥꯎꯟꯇ ꯁꯦꯝꯕꯤꯌꯨ",
+    "name": "ꯑꯄꯨꯅꯕꯥ ꯃꯤꯡ",
+    "namePlaceholder": "ꯅꯍꯥꯛꯀꯤ ꯑꯄꯨꯅꯕꯥ ꯃꯤꯡ",
+    "email": "ꯏꯃꯦꯏꯜ",
+    "emailPlaceholder": "ꯅꯍꯥꯛꯀꯤ@ꯏꯃꯦꯏꯜ.com",
+    "password": "ꯄꯥꯁꯋꯥꯔꯗ",
+    "confirmPassword": "ꯄꯥꯁꯋꯥꯔꯗ ꯑꯀꯨꯞꯄꯥ ꯍꯥꯌꯕꯤꯌꯨ",
+    "role": "ꯁꯤꯖꯤꯟꯅꯔꯤꯕꯒꯤ ꯊꯧꯗꯥꯡ",
+    "language": "ꯄꯥꯝꯂꯤꯕꯥ ꯂꯣꯜ",
+    "nationality": "ꯖꯥꯇꯤ",
+    "nationalityPlaceholder": "ꯍꯥꯌꯕꯗꯤ ꯚꯥꯔꯇꯤꯌ, ꯑꯃꯦꯔꯤꯀꯥꯟ, ꯑꯁꯤꯅꯆꯤꯡꯕ",
+    "createAccount": "ꯑꯦꯀꯥꯎꯟꯇ ꯁꯦꯝꯕꯤꯌꯨ",
+    "creating": "ꯑꯦꯀꯥꯎꯟꯇ ꯁꯦꯝꯂꯤ...",
+    "haveAccount": "ꯍꯥꯟꯅꯥ ꯑꯦꯀꯥꯎꯟꯇ ꯂꯩꯔꯤꯕꯔꯥ?",
+    "success": "ꯑꯦꯀꯥꯎꯟꯇ ꯁꯦꯝꯂꯦ",
+    "welcome": "ꯔꯛꯁꯥꯁꯦꯇꯨꯗꯥ ꯇꯔꯥꯝꯅꯥ ꯂꯥꯛꯄꯥ!",
+    "roles": {
+      "tourist": "ꯈꯣꯉꯆꯠ ꯆꯠꯂꯤꯕ",
+      "touristDesc": "ꯁꯦꯛꯌꯨꯔꯤꯇꯤ ꯏꯅꯐꯣꯔꯃꯦꯁꯟ ꯊꯤꯔꯤꯕ ꯈꯣꯉꯆꯠ ꯆꯠꯂꯤꯕ",
+      "police": "ꯄꯣꯂꯤꯁ ꯑꯣꯐꯤꯁꯔ",
+      "policeDesc": "ꯑꯥꯏꯟ ꯏꯝꯞꯂꯤꯃꯦꯟꯇꯦꯁꯟ ꯑꯣꯐꯤꯁꯔ",
+      "tourism": "ꯇꯨꯔꯤꯖꯝ ꯗꯤꯄꯥꯔꯇꯃꯦꯟꯇ",
+      "tourismDesc": "ꯇꯨꯔꯤꯖꯝ ꯗꯤꯄꯥꯔꯇꯃꯦꯟꯇꯀꯤ ꯑꯣꯐꯤꯁꯔ",
+      "admin": "ꯁꯤꯁ꯭ꯇꯦꯝ ꯑꯦꯗꯃꯤꯟ",
+      "adminDesc": "ꯁꯤꯁ꯭ꯇꯦꯝ ꯑꯦꯗꯃꯤꯅꯤꯁ꯭ꯠꯔꯦꯇꯔ"
+    },
+    "tourist": {
+      "emergencyContactName": "ꯈꯨꯗꯣꯡꯆꯥꯕꯒꯤ ꯃꯇꯥꯏ ꯋꯥꯔꯤꯒꯤ ꯃꯤꯡ",
+      "emergencyContactNamePlaceholder": "ꯈꯨꯗꯣꯡꯆꯥꯕꯒꯤ ꯃꯇꯥꯏ ꯋꯥꯔꯤꯒꯤ ꯑꯄꯨꯅꯕꯥ ꯃꯤꯡ",
+      "emergencyContact": "ꯈꯨꯗꯣꯡꯆꯥꯕꯒꯤ ꯃꯇꯥꯏ ꯋꯥꯔꯤ ꯅꯝꯕꯔ",
+      "emergencyContactPlaceholder": "+91 9876543210",
+      "emergencyContactRequired": "ꯈꯨꯗꯣꯡꯆꯥꯕꯒꯤ ꯃꯇꯥꯏ ꯋꯥꯔꯤꯒꯤ ꯋꯥꯐꯝ ꯃꯊꯧ ꯇꯥꯏ",
+      "aadhaarNumber": "ꯑꯥꯗꯍꯥꯔ ꯅꯝꯕꯔ (ꯚꯥꯔꯇꯤꯌꯁꯤꯡꯒꯤ ꯑꯣꯏꯅꯥ)",
+      "aadhaarPlaceholder": "1234 5678 9012",
+      "passportNumber": "ꯄꯥꯁꯄꯣꯔꯠ ꯅꯝꯕꯔ (ꯃꯄꯥꯟꯗꯥ ꯂꯩꯕ ꯈꯣꯉꯆꯠ ꯆꯠꯂꯤꯕꯁꯤꯡꯒꯤ ꯑꯣꯏꯅꯥ)",
+      "passportPlaceholder": "A1234567",
+      "expectedStayDuration": "ꯊꯥꯖꯕ ꯌꯥꯕ ꯃꯇꯝ",
+      "expectedStayPlaceholder": "ꯍꯥꯌꯕꯗꯤ ꯇꯔꯦꯠ ꯅꯨꯃꯤꯠ, ꯅꯤꯈꯨꯝ",
+      "accommodationDetails": "ꯂꯩꯈꯩ ꯃꯃꯤꯡ ꯑꯣꯏꯕ ꯌꯥꯕ ꯃꯐꯃꯁꯤꯡꯒꯤ ꯋꯥꯐꯝ",
+      "accommodationPlaceholder": "ꯍꯣꯇꯦꯂꯒꯤ ꯃꯤꯡ ꯑꯃꯁꯨꯡ ꯑꯦꯗꯔꯦꯁ",
+      "itinerary": "ꯈꯣꯉꯆꯠ ꯊꯧꯔꯥꯡ",
+      "itineraryPlaceholder": "ꯅꯍꯥꯛꯀꯤ ꯊꯧꯔꯥꯡ ꯐꯕ ꯃꯐꯃꯁꯤꯡ ꯑꯃꯁꯨꯡ ꯊꯕꯀꯁꯤꯡꯒꯤ ꯃꯇꯥꯡꯗꯥ ꯏꯕꯤꯌꯨ..."
+    }
+  },
+  "topbar": {
+    "home": "ꯌꯨꯝ",
+    "settings": "ꯁꯦꯇꯤꯡꯁ",
+    "language": "ꯂꯣꯜ",
+    "dark": "ꯑꯃꯥꯡꯕꯥ ꯃꯣꯗ",
+    "logout": "ꯂꯣꯒ ꯑꯥꯎꯠ"
+  },
+  "cards": {
+    "alerts": "ꯂꯥꯏꯚ ꯑꯦꯂꯥꯔꯠ",
+    "tourists": "ꯈꯣꯉꯆꯠ ꯆꯠꯂꯤꯕꯁꯤꯡ",
+    "zones": "ꯃꯐꯝ",
+    "efir": "ꯏ-ꯑꯦꯐꯑꯥꯏꯑꯥꯔ",
+    "analytics": "ꯍꯤꯇꯃꯦꯞ ꯑꯃꯁꯨꯡ ꯑꯦꯅꯥꯂꯤꯇꯤꯛꯁ",
+    "status": "ꯁꯤꯁ꯭ꯇꯦꯝ ꯐꯤꯚꯝ",
+    "alertsDesc": "ꯔꯤꯑꯦꯜ-ꯇꯥꯏꯝ ꯊꯧꯗꯣꯛ ꯌꯦꯡꯁꯤꯅꯕꯥ",
+    "touristsDesc": "ꯑꯦꯛꯇꯤꯚ ꯈꯣꯉꯆꯠ ꯆꯠꯂꯤꯕꯁꯤꯡꯒꯤ ꯇ꯭ꯔꯦꯀꯤꯡ",
+    "zonesDesc": "ꯃꯐꯝ ꯃꯦꯅꯦꯖꯃꯦꯟꯇ ꯑꯃꯁꯨꯡ ꯌꯦꯡꯁꯤꯅꯕꯥ",
+    "efirDesc": "ꯗꯤꯖꯤꯇꯦꯜ ꯑꯦꯐꯑꯥꯏꯑꯥꯔ ꯃꯦꯅꯦꯖꯃꯦꯟꯇ",
+    "analyticsDesc": "ꯈꯣꯉꯆꯠ ꯆꯠꯄꯒꯤ ꯑꯔꯥꯅꯕꯥ ꯑꯦꯅꯥꯂꯤꯇꯤꯛꯁ",
+    "statusDesc": "ꯑꯦꯄꯤꯑꯥꯏ ꯑꯃꯁꯨꯡ ꯁꯣꯀꯦꯠ ꯌꯦꯡꯁꯤꯅꯕꯥ"
+  },
+  "alerts": {
+    "severity": "ꯆꯥꯎꯕꯥ",
+    "type": "ꯃꯈꯜ",
+    "timestamp": "ꯃꯇꯝ",
+    "view": "ꯌꯦꯡꯕꯤꯌꯨ",
+    "critical": "ꯃꯔꯨꯑꯣꯏꯕꯥ",
+    "moderate": "ꯃꯔꯤꯛ",
+    "low": "ꯅꯣꯡꯖꯨ",
+    "panic": "ꯄꯦꯅꯤꯛ ꯑꯦꯂꯥꯔꯠ",
+    "geofence": "ꯖꯤꯑꯣ-ꯐꯦꯟꯁ ꯊꯥꯗꯣꯀꯄꯥ",
+    "anomaly": "ꯑꯁꯤꯟꯕꯥ ꯈꯪꯗꯣꯀꯄꯥ",
+    "feed": "ꯂꯥꯏꯚ ꯑꯦꯂꯥꯔꯠ ꯐꯤꯗ",
+    "noAlerts": "ꯑꯦꯛꯇꯤꯚ ꯑꯦꯂꯥꯔꯠ ꯂꯩꯇꯦ"
+  },
+  "tourists": {
+    "title": "ꯈꯣꯉꯆꯠ ꯆꯠꯂꯤꯕꯁꯤꯡꯒꯤ ꯃꯦꯅꯦꯖꯃꯦꯟꯇ",
+    "name": "ꯃꯤꯡ",
+    "location": "ꯃꯐꯝ",
+    "status": "ꯐꯤꯚꯝ",
+    "lastSeen": "ꯑꯔꯣꯏꯕꯥ ꯎꯔꯝ",
+    "viewProfile": "ꯄ꯭ꯔꯣꯐꯥꯏꯜ ꯌꯦꯡꯕꯤꯌꯨ",
+    "digitalId": "ꯗꯤꯖꯤꯇꯦꯜ ꯑꯥꯏꯗꯤ",
+    "emergencyContact": "ꯈꯨꯗꯣꯡꯆꯥꯕꯒꯤ ꯃꯇꯥꯏ ꯋꯥꯔꯤ"
+  },
+  "zones": {
+    "title": "ꯃꯐꯝ ꯃꯦꯅꯦꯖꯃꯦꯟꯇ",
+    "safe": "ꯑꯔꯥꯅꯕꯥ ꯃꯐꯝ",
+    "restricted": "ꯊꯥꯗꯣꯀꯄꯥ ꯃꯐꯝ",
+    "draw": "ꯃꯐꯝ ꯁꯥꯕꯤꯌꯨ",
+    "save": "ꯃꯐꯝ ꯁꯦꯚ ꯇꯧꯕꯤꯌꯨ",
+    "edit": "ꯃꯐꯝ ꯑꯦꯗꯤꯠ ꯇꯧꯕꯤꯌꯨ",
+    "delete": "ꯃꯐꯝ ꯃꯣꯠꯇꯧꯕꯤꯌꯨ"
+  },
+  "efir": {
+    "title": "ꯏ-ꯑꯦꯐꯑꯥꯏꯑꯥꯔ ꯃꯦꯅꯦꯖꯃꯦꯟꯇ",
+    "draft": "ꯗ꯭ꯔꯥꯐꯠ",
+    "pending": "ꯄꯦꯟꯗꯤꯡ",
+    "approved": "ꯑꯦꯞꯔꯨꯚ ꯇꯧꯔꯝ",
+    "create": "ꯑꯦꯐꯑꯥꯏꯑꯥꯔ ꯁꯦꯝꯕꯤꯌꯨ",
+    "approve": "ꯑꯦꯞꯔꯨꯚ ꯇꯧꯕꯤꯌꯨ",
+    "details": "ꯑꯦꯐꯑꯥꯏꯑꯥꯔ ꯑꯀꯨꯞꯄꯥ ꯏꯁꯤꯡ",
+    "incident": "ꯊꯧꯗꯣꯛ ꯔꯤꯄꯣꯔꯠ"
+  },
+  "analytics": {
+    "title": "ꯑꯦꯅꯥꯂꯤꯇꯤꯛꯁ ꯗꯦꯁꯕꯣꯔꯗ",
+    "heatmap": "ꯍꯤꯇꯃꯦꯞ",
+    "daily": "ꯅꯨꯃꯤꯠ ꯈꯨꯗꯤꯡꯒꯤ ꯑꯦꯂꯥꯔꯠ",
+    "incidents": "ꯊꯧꯗꯣꯀꯁꯤꯡ",
+    "response": "ꯄꯥꯎꯈꯨꯝ ꯄꯤꯕꯒꯤ ꯃꯇꯝ",
+    "export": "ꯗꯦꯇꯥ ꯑꯦꯛꯁꯄꯣꯔꯠ"
+  },
+  "settings": {
+    "title": "ꯁꯦꯇꯤꯡꯁ",
+    "general": "ꯖꯦꯅꯦꯔꯦꯜ",
+    "account": "ꯑꯦꯀꯥꯎꯟꯇ",
+    "notifications": "ꯅꯣꯇꯤꯐꯤꯀꯦꯁꯟ",
+    "accessibility": "ꯁꯤꯖꯤꯟꯅꯕꯒꯤ ꯈꯨꯗꯣꯡꯆꯥꯕꯥ",
+    "profile": "ꯄ꯭ꯔꯣꯐꯥꯏꯜ",
+    "security": "ꯁꯦꯛꯌꯨꯔꯤꯇꯤ",
+    "preferences": "ꯄꯁꯟꯗꯁꯤꯡ"
+  },
+  "tourist": {
+    "home": "ꯌꯨꯝ",
+    "safetyScore": "ꯑꯔꯥꯅꯕꯒꯤ ꯁ꯭ꯀꯣꯔ",
+    "digitalId": "ꯑꯩꯒꯤ ꯗꯤꯖꯤꯇꯦꯜ ꯑꯥꯏꯗꯤ",
+    "trips": "ꯑꯩꯒꯤ ꯈꯣꯉꯆꯠ",
+    "sos": "ꯑꯦꯁꯑꯣꯑꯦꯁ",
+    "map": "ꯃꯦꯞ",
+    "alerts": "ꯑꯦꯂꯥꯔꯠ",
+    "profile": "ꯄ꯭ꯔꯣꯐꯥꯏꯜ"
+  },
+  "errors": {
+    "required": "ꯃꯁꯤꯒꯤ ꯃꯐꯝ ꯃꯊꯧ ꯇꯥꯏ",
+    "invalidEmail": "ꯊꯕꯛ ꯊꯣꯀꯄꯥ ꯏꯃꯦꯏꯜ ꯑꯃꯥ ꯍꯥꯄꯆꯤꯅꯕꯤꯌꯨ",
+    "passwordMismatch": "ꯄꯥꯁꯋꯥꯔꯗ ꯃꯥꯟꯅꯗꯦ",
+    "loginFailed": "ꯂꯣꯒꯏꯟ ꯃꯥꯌ ꯄꯥꯀꯈꯤ꯫ ꯅꯍꯥꯛꯀꯤ ꯏꯅꯐꯣꯔꯃꯦꯁꯟ ꯌꯦꯡꯁꯤꯅꯕꯤꯌꯨ꯫",
+    "networkError": "ꯅꯦꯇꯋꯔꯛ ꯑꯁꯣꯏꯕꯥ꯫ ꯑꯃꯨꯛ ꯍꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫"
+  },
+  "sos": {
+    "confirm": "ꯑꯦꯁꯑꯣꯑꯦꯁ ꯊꯥꯒꯗꯔꯥ?",
+    "sent": "ꯑꯦꯁꯑꯣꯑꯦꯁ ꯊꯥꯔꯦ꯫ ꯑꯣꯊꯣꯔꯤꯇꯤꯁꯤꯡꯗꯥ ꯂꯧꯁꯤꯅꯔꯦ꯫",
+    "button": "ꯈꯨꯗꯣꯡꯆꯥꯕꯒꯤ ꯑꯦꯁꯑꯣꯑꯦꯁ",
+    "calling": "ꯈꯨꯗꯣꯡꯆꯥꯕꯒꯤ ꯁꯔꯚꯤꯁꯁꯤꯡꯗꯥ ꯀꯣꯜ ꯇꯧꯔꯤ..."
+  },
+  "common": {
+    "loading": "ꯂꯣꯗ ꯇꯧꯔꯤ...",
+    "save": "ꯁꯦꯚ ꯇꯧꯕꯤꯌꯨ",
+    "cancel": "ꯀꯦꯟꯁꯦꯜ ꯇꯧꯕꯤꯌꯨ",
+    "close": "ꯀꯨꯄꯁꯤꯅꯕꯤꯌꯨ",
+    "back": "ꯃꯇꯨꯡꯗꯥ",
+    "next": "ꯃꯊꯪꯗꯥ",
+    "submit": "ꯁꯕꯃꯤꯠ ꯇꯧꯕꯤꯌꯨ",
+    "search": "ꯊꯤꯕꯤꯌꯨ",
+    "filter": "ꯐꯤꯂꯇꯔ",
+    "export": "ꯑꯦꯛꯁꯄꯣꯔꯠ",
+    "refresh": "ꯔꯤꯐ꯭ꯔꯦꯁ"
+  }
+}

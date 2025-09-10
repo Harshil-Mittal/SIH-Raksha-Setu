@@ -1,0 +1,181 @@
+{
+  "app": {
+    "title": "RakshaSetu",
+    "tagline": "निरामन फिनाजिमनि खामानि नंगौ डिजिटल गुबुन"
+  },
+  "login": {
+    "title": "Log In",
+    "email": "Email",
+    "password": "Password",
+    "role": "Role",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "selectRole": "नंगौ role आन फोरै",
+    "welcomeBack": "आबार जुरनै",
+    "signInAccount": "नंगौ RakshaSetu account आ sign in खालाम"
+  },
+  "signup": {
+    "title": "RakshaSetu आ जोइन खालाम",
+    "tagline": "निरामन जिउनिफ्राय नंगौ account बावनै",
+    "name": "गुनुम मुंगै",
+    "namePlaceholder": "नंगौ गुनुम मुंगै",
+    "email": "Email",
+    "emailPlaceholder": "नंगौ@email.com",
+    "password": "Password",
+    "confirmPassword": "Password confirm खालाम",
+    "role": "बावरा काम",
+    "language": "दिनै काथार",
+    "nationality": "जात",
+    "nationalityPlaceholder": "नुंगा भारतीय, अमेरिकान, मावसिन",
+    "createAccount": "Account बावनै",
+    "creating": "Account बावनो दंगौ...",
+    "haveAccount": "Account दं?",
+    "success": "Account बावलाय",
+    "welcome": "RakshaSetu आ स्वागत!",
+    "roles": {
+      "tourist": "Tourist",
+      "touristDesc": "निरामनि खावरै जानो गोसो",
+      "police": "Police Officer",
+      "policeDesc": "हादोर सासेनारि कामि मुनुस",
+      "tourism": "Tourism Department",
+      "tourismDesc": "Tourism department आन अफिसार",
+      "admin": "System Admin",
+      "adminDesc": "System गुबुन मुनुस"
+    },
+    "tourist": {
+      "emergencyContactName": "Emergency मुनुसनि मुंगै",
+      "emergencyContactNamePlaceholder": "Emergency मुनुसनि गुनुम मुंगै",
+      "emergencyContact": "Emergency contact नम्बार",
+      "emergencyContactPlaceholder": "+91 9876543210",
+      "emergencyContactRequired": "Emergency contact विवरण दरकार",
+      "aadhaarNumber": "आधार नम्बार (भारतीयफोरै)",
+      "aadhaarPlaceholder": "1234 5678 9012",
+      "passportNumber": "Passport नम्बार (बिदेसी touristफोरै)",
+      "passportPlaceholder": "A1234567",
+      "expectedStayDuration": "दांगौ थानै बेलाफाङ",
+      "expectedStayPlaceholder": "नुंगा ७ सान, २ हाप्ता",
+      "accommodationDetails": "दांगौ जागायनि विवरण",
+      "accommodationPlaceholder": "Hotel मुंगै आरो address",
+      "itinerary": "यात्राया program",
+      "itineraryPlaceholder": "नंगौ plan जागायफोर आरो कामफोर बिवरन सोलों..."
+    }
+  },
+  "topbar": {
+    "home": "नो",
+    "settings": "Settings",
+    "language": "काथार",
+    "dark": "अंधार mode",
+    "logout": "Log out"
+  },
+  "cards": {
+    "alerts": "Live Alerts",
+    "tourists": "Tourists",
+    "zones": "Zones",
+    "efir": "E-FIR",
+    "analytics": "Heatmaps & Analytics",
+    "status": "System Status",
+    "alertsDesc": "Real-time incident monitoring",
+    "touristsDesc": "Active tourist tracking",
+    "zonesDesc": "Zone management & monitoring",
+    "efirDesc": "Digital FIR management",
+    "analyticsDesc": "Tourism safety analytics",
+    "statusDesc": "API & socket monitoring"
+  },
+  "alerts": {
+    "severity": "Severity",
+    "type": "Type",
+    "timestamp": "Time",
+    "view": "नायनो",
+    "critical": "Critical",
+    "moderate": "Moderate",
+    "low": "Low",
+    "panic": "Panic Alert",
+    "geofence": "Geo-fence Breach",
+    "anomaly": "Anomaly Detection",
+    "feed": "Live Alerts Feed",
+    "noAlerts": "कोनो active alerts गैया"
+  },
+  "tourists": {
+    "title": "Tourist Management",
+    "name": "मुंगै",
+    "location": "जागाय",
+    "status": "Status",
+    "lastSeen": "सासे नैथो",
+    "viewProfile": "Profile नायनो",
+    "digitalId": "Digital ID",
+    "emergencyContact": "Emergency Contact"
+  },
+  "zones": {
+    "title": "Zone Management",
+    "safe": "Safe Zone",
+    "restricted": "Restricted Zone",
+    "draw": "Draw Zone",
+    "save": "Save Zone",
+    "edit": "Edit Zone",
+    "delete": "Delete Zone"
+  },
+  "efir": {
+    "title": "E-FIR Management",
+    "draft": "Draft",
+    "pending": "Pending",
+    "approved": "Approved",
+    "create": "Create FIR",
+    "approve": "Approve",
+    "details": "FIR Details",
+    "incident": "Incident Report"
+  },
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "heatmap": "Heatmap",
+    "daily": "Daily Alerts",
+    "incidents": "Incidents",
+    "response": "Response Time",
+    "export": "Export Data"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "account": "Account",
+    "notifications": "Notifications",
+    "accessibility": "Accessibility",
+    "profile": "Profile",
+    "security": "Security",
+    "preferences": "Preferences"
+  },
+  "tourist": {
+    "home": "नो",
+    "safetyScore": "Safety Score",
+    "digitalId": "आंगौ Digital ID",
+    "trips": "आंगौ trips",
+    "sos": "SOS",
+    "map": "Map",
+    "alerts": "Alerts",
+    "profile": "Profile"
+  },
+  "errors": {
+    "required": "बे field दरकार",
+    "invalidEmail": "सैगाव email सोलों",
+    "passwordMismatch": "Password सामनै",
+    "loginFailed": "Login फैल। नंगौ details check खालाम।",
+    "networkError": "Network समस्या। आरो खोसे।"
+  },
+  "sos": {
+    "confirm": "SOS पठै गो?",
+    "sent": "SOS पठैलाय। Authorities आ inform खालामगौ।",
+    "button": "Emergency SOS",
+    "calling": "Emergency services आ call खालाम..."
+  },
+  "common": {
+    "loading": "Load दंगौ...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "बन्ध",
+    "back": "उनाव",
+    "next": "फिन्ना",
+    "submit": "Submit",
+    "search": "बिसारनो",
+    "filter": "Filter",
+    "export": "Export",
+    "refresh": "Refresh"
+  }
+}
