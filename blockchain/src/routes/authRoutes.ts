@@ -9,9 +9,37 @@ import { inMemoryStorage } from '../services/inMemoryStorage';
 
 const router = Router();
 
+// Debug endpoint to check connection and clear memory
+router.get('/debug', async (req: Request, res: Response) => {
+  const mongoState = mongoose.connection.readyState;
+  const mongoConnected = isMongoConnected();
+  
+  res.json({
+    success: true,
+    data: {
+      mongoConnectionState: mongoState,
+      mongoConnected,
+      inMemoryUsers: inMemoryStorage.getUserCount(),
+      inMemoryDigitalIDs: inMemoryStorage.getDigitalIDCount(),
+      inMemorySessions: inMemoryStorage.getSessionCount()
+    }
+  });
+});
+
+// Debug endpoint to clear in-memory storage
+router.post('/debug/clear-memory', async (req: Request, res: Response) => {
+  inMemoryStorage.clearAll();
+  res.json({
+    success: true,
+    message: 'In-memory storage cleared'
+  });
+});
+
 // Helper function to check if MongoDB is connected
 const isMongoConnected = () => {
-  return mongoose.connection.readyState === 1;
+  const state = mongoose.connection.readyState;
+  logger.info(`MongoDB connection state: ${state} (0=disconnected, 1=connected, 2=connecting, 3=disconnecting)`);
+  return state === 1;
 };
 
 // Validation schemas
@@ -43,15 +71,27 @@ router.post('/register', async (req: Request, res: Response) => {
 
     // Check if user already exists
     let existingUser = null;
-    if (isMongoConnected()) {
+    const mongoConnected = isMongoConnected();
+    logger.info(`MongoDB connection state: ${mongoose.connection.readyState}, isMongoConnected: ${mongoConnected}`);
+    
+    if (mongoConnected) {
+      logger.info(`Searching for user with email: ${value.email}`);
+      
+      // Build query conditions
+      const queryConditions = [{ email: value.email }];
+      
+      // Only add walletAddress condition if it's provided and not empty
+      if (value.walletAddress && value.walletAddress.trim() !== '') {
+        queryConditions.push({ walletAddress: value.walletAddress });
+      }
+      
       existingUser = await User.findOne({
-        $or: [
-          { email: value.email },
-          { walletAddress: value.walletAddress }
-        ]
+        $or: queryConditions
       });
+      logger.info(`MongoDB search result: ${existingUser ? 'User found' : 'User not found'}`);
     } else {
       existingUser = await inMemoryStorage.findUserByEmail(value.email);
+      logger.info(`In-memory search result: ${existingUser ? 'User found' : 'User not found'}`);
     }
 
     if (existingUser) {
@@ -63,9 +103,11 @@ router.post('/register', async (req: Request, res: Response) => {
 
     // Create new user
     let user;
-    if (isMongoConnected()) {
+    if (mongoConnected) {
+      logger.info('Creating user in MongoDB');
       user = await User.create(value);
     } else {
+      logger.info('Creating user in memory storage');
       user = await inMemoryStorage.createUser(value);
     }
 
@@ -120,7 +162,7 @@ router.post('/login', async (req: Request, res: Response) => {
     // Find user and check password
     let user;
     if (isMongoConnected()) {
-      user = await User.findOne({ email: value.email });
+      user = await User.findOne({ email: value.email }).select('+password');
       if (!user) {
         return res.status(401).json({
           success: false,

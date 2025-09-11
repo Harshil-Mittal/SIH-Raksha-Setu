@@ -78,6 +78,14 @@ class InMemoryStorage {
     return this.sessions.delete(sessionId);
   }
 
+  // Clear all data
+  clearAll() {
+    this.users.clear();
+    this.digitalIDs.clear();
+    this.sessions.clear();
+    logger.info('In-memory storage cleared');
+  }
+
   // Stats
   getUserCount() {
     return this.users.size;
